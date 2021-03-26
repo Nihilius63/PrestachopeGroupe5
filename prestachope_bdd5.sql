@@ -1,8 +1,8 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
+CREATE TABLE prestachope_bdd5
 
-CREATE DATABASE prestachope_bdd5
 #------------------------------------------------------------
 # Table: Utilisateurs
 #------------------------------------------------------------
@@ -74,6 +74,20 @@ CREATE TABLE Commande(
 	,CONSTRAINT Commande_PK PRIMARY KEY (idCommande)
 
 	,CONSTRAINT Commande_Utilisateurs_FK FOREIGN KEY (idClient) REFERENCES Utilisateurs(idClient)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: SousCategorie
+#------------------------------------------------------------
+
+CREATE TABLE SousCategorie(
+        idSousCategorie  Int  Auto_increment  NOT NULL ,
+        nomSousCategorie Varchar (20) NOT NULL ,
+        idCategorie      Int NOT NULL
+	,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie)
+
+	,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
 )ENGINE=InnoDB;
 
 
