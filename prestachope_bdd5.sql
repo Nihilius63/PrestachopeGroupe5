@@ -1,7 +1,9 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
-CREATE TABLE prestachope_bdd5
+DROP DATABASE IF EXISTS prestachope_bdd5;
+CREATE DATABASE prestachope_bdd5;
+USE prestachope_bdd5;
 
 #------------------------------------------------------------
 # Table: Utilisateurs
@@ -40,6 +42,7 @@ CREATE TABLE Produit(
         idProduit   Int  Auto_increment  NOT NULL ,
         nom         Varchar (20) NOT NULL ,
         prix        Varchar (20) NOT NULL ,
+        description Text Not NULL ,
         stock       Int NOT NULL ,
         idCategorie Int NOT NULL
 	,CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
@@ -95,7 +98,7 @@ CREATE TABLE SousCategorie(
 # Table: Contenir
 #------------------------------------------------------------
 
-CREATE TABLE Contenir(
+CREATE TABLE Commande_Produit(
         idCommande Int NOT NULL ,
         idProduit  Int NOT NULL ,
         quantite   Int NOT NULL
