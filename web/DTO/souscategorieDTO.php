@@ -1,10 +1,10 @@
 <?php
 	class souscategorieDTO
 	{
-		private $nomSousCategorie;
-		private $idCategorie;
-                public function getNomSousCategorie() {
-                    return $this->nomSousCategorie;
+            private $nomSousCategorie;
+            private $idCategorie;
+            public function getNomSousCategorie() {
+                return $this->nomSousCategorie;
                 }
 
                 public function getIdCategorie() {
