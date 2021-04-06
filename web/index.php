@@ -13,6 +13,7 @@
   	{
 		$page = $_GET['page'];
 	}
+        include_once 'tools/SuperController.php';
 	SuperController::callPage($page);	
 ?>		
 </body>

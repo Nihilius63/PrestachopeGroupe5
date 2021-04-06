@@ -1,11 +1,12 @@
 <?php
 class produitDAO 
 {
-    public static function insertproduct($Productdto) 
+    public static function insertproduct($produitDTO) 
     {
-        $dbb = Databaselinker::getconnexion();
-        $dbbb=$dbb->prepare('INSERT INTO produit(nom, prix, description, stock) VALUES (?,CURRENT_TIMESTAMP,?,?)');
-    	$dbbb->execute(array($commentaireDTO->getpseudo(),$commentaireDTO->getcontent(),$commentaireDTO->getidarticle()));
+        $dbb = databaselinker::getconnexion();
+        var_dump($dbb);
+        $dbbb=$dbb->prepare('INSERT INTO prestachope_bdd5.produit(nom, prix, description, stock,idCategorie) VALUES (?,?,?,?,1)');
+    	$dbbb->execute(array($produitDTO->getNom(),$produitDTO->getPrix(),$produitDTO->getDescription(),$produitDTO->getStock()));
     }
 }
 ?>

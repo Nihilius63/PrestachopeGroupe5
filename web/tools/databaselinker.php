@@ -7,8 +7,8 @@ class databaselinker
 	private static $bdd;
 	public static function getconnexion()
 	{
-		databaselinker::$bdd = new PDO(databaselinker::$urlbdd,databaselinker::$namebdd,databaselinker::$passwordbdd);
-    	return databaselinker::$bdd;
+            databaselinker::$bdd = new PDO(databaselinker::$urlbdd,databaselinker::$namebdd,databaselinker::$passwordbdd);
+            return databaselinker::$bdd;
 	}
 }
 ?>
