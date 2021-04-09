@@ -92,7 +92,18 @@ class SuperController
                     }
                 break;
                 }
+                case "inscription":
+                {
+                    include_once 'pages/inscription/Inscription_controlleur.php';
+                    $instanceController = new Inscription_controlleur();
+                    $instanceController->includeview();
+                    if (isset($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp']))
+                    {
+                        $instanceController->newUtilisateur($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp']);
+                    }
+                break;
+                }
             }
-  	}
+        }
 }
 ?>

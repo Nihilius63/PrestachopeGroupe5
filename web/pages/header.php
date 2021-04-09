@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title></title>
+        <meta charset="UTF-8">
         <script src="https://kit.fontawesome.com/e4c565c7ff.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -9,8 +11,8 @@
                 <h1> Prestachope </h1>
             </div>
             <div class="btn">
-                <a href="index.php?pages=connexion"  value="connexion" >Connexion</a>
-                <a href="index.php?pages=inscription"  value="inscription" >Inscription</a>
+                <a href="index.php?page=connexion"  value="connexion" >Connexion</a>
+                <a href="index.php?page=inscription"  value="inscription" >Inscription</a>
             </div>
             <div class="dropdown">
                 <ul>
