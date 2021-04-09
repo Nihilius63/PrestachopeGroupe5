@@ -16,6 +16,7 @@ CREATE TABLE Utilisateurs(
         adresse    Varchar (40) NOT NULL ,
         mail       Varchar (40) NOT NULL ,
         motdepasse Varchar (40) NOT NULL ,
+        cagnote    Int NOT NULL ,
         admin      Int NOT NULL ,
         ban        Int NOT NULL ,
         timeBan    TimeStamp NOT NULL
@@ -30,7 +31,7 @@ CREATE TABLE Utilisateurs(
 CREATE TABLE Categorie(
         idCategorie      Int  Auto_increment  NOT NULL ,
         categorieProduit Varchar (20) NOT NULL
-	,CONSTRAINT Categorie_PK PRIMARY KEY (idCategorie)
+	,CONSTRAINT Categorie_PK PRIMARY KEY (idCategorie) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -45,9 +46,9 @@ CREATE TABLE Produit(
         description Text Not NULL ,
         stock       Int NOT NULL ,
         idCategorie Int NOT NULL
-	,CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
+	,CONSTRAINT Produit_PK PRIMARY KEY (idProduit) ON DELETE CASCADE
 
-	,CONSTRAINT Produit_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+	,CONSTRAINT Produit_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -88,9 +89,9 @@ CREATE TABLE SousCategorie(
         idSousCategorie  Int  Auto_increment  NOT NULL ,
         nomSousCategorie Varchar (20) NOT NULL ,
         idCategorie      Int NOT NULL
-	,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie)
+	,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie) ON DELETE CASCADE
 
-	,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+	,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 

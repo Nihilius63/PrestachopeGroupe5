@@ -1,6 +1,7 @@
 <html>
     <head>
         <title></title>
+        <script src="https://kit.fontawesome.com/e4c565c7ff.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
@@ -44,6 +45,16 @@
                     </li>
                 </ul>
             </div>
+            <div class="recherche">
+                <form action="" method="post">
+                    <input class="recherche-txt" type="text" name="recherche" placeholder="Rechercher..." minlength="3">
+                    <button type="submit" class="btn_search">
+                    <div class="bouton-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                </button>
+                </form>
+            </div>  
         </header>
     </body>
 </html>
