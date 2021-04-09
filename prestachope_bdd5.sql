@@ -45,6 +45,7 @@ CREATE TABLE Produit(
         prix        Varchar (20) NOT NULL ,
         description Text Not NULL ,
         stock       Int NOT NULL ,
+        image        Varchar (40) NOT NULL ,
         idCategorie Int NOT NULL,
 	CONSTRAINT Produit_PK PRIMARY KEY (idProduit),
 

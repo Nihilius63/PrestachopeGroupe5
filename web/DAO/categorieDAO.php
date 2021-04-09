@@ -24,5 +24,17 @@ class categorieDAO
     	}
         return $tab;
     }
+    public static function deletecategorie($categorieDTO)
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('DELETE FROM prestachope_bdd5.produit WHERE idCategorie=? ');
+    	$dbbb->execute(array($categorieDTO->getIdCategorie()));
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('DELETE FROM prestachope_bdd5.souscategorie WHERE idCategorie=? ');
+    	$dbbb->execute(array($categorieDTO->getIdCategorie()));
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('DELETE FROM prestachope_bdd5.categorie WHERE idCategorie=? ');
+    	$dbbb->execute(array($categorieDTO->getIdCategorie()));
+    }
 }
 ?>

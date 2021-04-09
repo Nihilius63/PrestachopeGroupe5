@@ -1,11 +1,21 @@
 <?php
 	class produitDTO
 	{
-		private $nom;
+                private $id;
+                private $nom;
 		private $prix;
                 private $description;
                 private $stock;
                 private $idCategorie;
+                
+                public function getId() {
+                    return $this->id;
+                }
+
+                public function setId($id): void {
+                    $this->id = $id;
+                }
+
                 public function getNom() {
                     return $this->nom;
                 }
