@@ -4,11 +4,16 @@ class SuperController
 {
 	public static function callPage($page)
 	{
-            include_once("pages/header.php");
             switch($page)
             {
+                case "presentation":
+                {
+                   include_once 'pages/presentation/presentation_view.php'; 
+                   break; 
+                }
                 case "new_product":
                 {
+                    include_once("pages/header.php");
                     include_once '/xampp/htdocs/PrestachopeGroupe5/web/DAO/categorieDAO.php';
                     include_once 'pages/creationproduit/Creation_produitcontrolleur.php';
                     $instanceController = new Creation_produitcontrolleur();
@@ -39,6 +44,7 @@ class SuperController
                 }             
                 case "new_categorie":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/creationcategorie/Creation_categoriecontrolleur.php';
                     $instanceController = new Creation_categoriecontrolleur();
                     $instanceController->includeView();
@@ -50,6 +56,7 @@ class SuperController
                 }
                 case "new_souscategorie":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/creationsouscategorie/Creation_souscategoriecontrolleur.php';
                     $instanceController = new Creation_souscategoriecontrolleur();
                     $instanceController->includeView();
@@ -61,6 +68,7 @@ class SuperController
                 }
                 case "delete_produit":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/deleteproduit/delete_produitcontrolleur.php';
                     $instanceController = new delete_produitcontrolleur();
                     $instanceController->includeView();
@@ -72,6 +80,7 @@ class SuperController
                 }
                 case "delete_categorie":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/deleteproduit/delete_produitcontrolleur.php';
                     $instanceController = new delete_categoriecontrolleur();
                     $instanceController->includeView();
@@ -83,6 +92,7 @@ class SuperController
                 }
                 case "delete_souscategorie":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/deletesouscategorie/delete_souscategoriecontrolleur.php';
                     $instanceController = new delete_souscategoriecontrolleur();
                     $instanceController->includeView();
@@ -94,15 +104,36 @@ class SuperController
                 }
                 case "inscription":
                 {
+                    include_once("pages/header.php");
                     include_once 'pages/inscription/Inscription_controlleur.php';
                     $instanceController = new Inscription_controlleur();
                     $instanceController->includeview();
-                    if (isset($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp']))
+                    if (isset($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp'], $_POST['conf_mdp']))
                     {
-                        $instanceController->newUtilisateur($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp']);
-                    }
+                        if ($_POST['mdp']==$_POST['conf_mdp'])
+                        {
+                            if($instanceController->newUtilisateur($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['mdp']))
+                            {
+                               $instanceController->redirectUser(); 
+                            }
+                        }
+                        else
+                        {
+                            echo "les deux mots de passe sont différents";
+                        }
+                    }   
                 break;
                 }
+                case "connexion":
+                    include_once("pages/header.php");
+                    include_once 'pages/connexion/Connexion_controller.php';
+                    $instanceController = new Connexion_controller();
+                    $instanceController->includeview();
+                    if(isset($_POST['email'],$_POST['mdp']))
+                        {
+                            $instanceController->connectUtilisateur($_POST['email'], $_POST['mdp']);
+                        }
+                break;
             }
         }
 }

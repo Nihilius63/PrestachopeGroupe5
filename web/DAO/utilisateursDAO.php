@@ -3,7 +3,7 @@ class utilisateursDAO
 {
     public static function verifUtilisateur($utilisateurDTO){
         $bdd= databaselinker::getconnexion();
-        $resultat=$bdd->prepare('SELECT * FROM utilisateurs WHERE mail=?');
+        $resultat=$bdd->prepare('SELECT * FROM prestachope_bdd5.utilisateurs WHERE mail=?');
         $resultat->execute(array($utilisateurDTO->getMail()));
         $result=$resultat->fetch();
         $erreur=true;
@@ -15,5 +15,13 @@ class utilisateursDAO
             $insert->execute(array($utilisateurDTO->getNom(),$utilisateurDTO->getPrenom(),$utilisateurDTO->getAdresse(),$utilisateurDTO->getMail(),$utilisateurDTO->getMotdepasse()));
         }
         return $erreur;
+    }
+    
+    public static function connexUtilisateur($utilisateurDTO) {
+        $bdd= databaselinker::getconnexion();
+        $resultat=$bdd->prepare('SELECT * FROM prestachope_bdd5.utilisateurs WHERE mail=? and motdepasse=?');
+        $resultat->execute(array($utilisateurDTO->getMail(),$utilisateurDTO->getMotdepasse()));
+        $result=$resultat->fetchAll();
+        var_dump($result);
     }
 }

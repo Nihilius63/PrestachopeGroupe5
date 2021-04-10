@@ -7,7 +7,7 @@
 	<body>
 <?php
 	session_start();
-    $page = "connexion";
+    $page = "presentation";
 
   	if(!empty($_GET['page'])) 
   	{
