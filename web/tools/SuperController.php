@@ -11,6 +11,11 @@ class SuperController
                    include_once 'pages/presentation/presentation_view.php'; 
                    break; 
                 }
+                case "info":
+                {
+                    include_once 'pages/information/information_view.php';
+                    break;
+                }
                 case "new_product":
                 {
                     include_once("pages/header.php");
