@@ -5,7 +5,7 @@
 	<title>Creation produit</title>
 </head>
 <body>
-    <form action="" method="post" class="form-example">
+    <form action="" method="post" class="form-example" enctype="multipart/form-data">
         <div class="form-example">
         <label for="Nom">Nom :</label>
         <input type="text" name="Nom" id="Nom" required>
@@ -32,13 +32,10 @@
                 echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
              }
         ?>
-        </select>
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
-  	<div class="form-example">
-    <input type="submit" value="Envoyer">
-  	</div>
+        </select><br>
+        <label for="fileToUpload">Image:</label>
+        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+        <input type="submit" value="Ajouter" name="submit">
   	</form>
 </body>
 </html>
