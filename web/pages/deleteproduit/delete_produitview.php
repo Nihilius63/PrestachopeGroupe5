@@ -11,7 +11,7 @@
         <option value="">--Choisissez un produit--</option>
         <?php
         include_once 'C:\xampp\htdocs\PrestachopeGroupe5\web\DAO\produitDAO.php';
-             $produits=produitDAO::selectproduit();
+             $produits=produitDAO::selectallproduit();
              foreach ($produits as $produit)
              {
                 echo '<option value='.$produit->getId().'>'.$produit->getNom().'</option>';

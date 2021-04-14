@@ -8,7 +8,11 @@ class SuperController
             {
                 case "presentation":
                 {
-                   include_once 'pages/presentation/presentation_view.php'; 
+                   include_once 'pages/presentation/presentation_controlleur.php';
+                   include_once 'DAO/produitDAO.php';
+                   include_once 'DTO/produitDTO.php';
+                   $instanceController = new presentation_controlleur();
+                   $instanceController->includeView();
                    break; 
                 }
                 case "info":
@@ -78,7 +82,7 @@ class SuperController
                                 echo "Sorry, there was an error uploading your file.";
                             }
                         }
-                        $instanceController->newproduct($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie']);
+                        $instanceController->newproduct($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$target_file);
                     }
                         
                     }

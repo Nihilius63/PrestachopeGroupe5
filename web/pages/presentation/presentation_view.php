@@ -25,6 +25,19 @@
                 </div>
             </div>
         </div>
+        <h1>Les bieres:</h1>
+        <?php
+        $show=produitDAO::selectproduitrandom(1);
+        foreach ($show as $shows)
+        {
+            echo $shows->getId().'<br>';
+            echo $shows->getNom().'<br>';
+            echo $shows->getPrix().'<br>';
+            echo $shows->getDescription().'<br>';
+            echo $shows->getStock().'<br>';
+            echo $shows->getIdCategorie().'<br>';
+        }
+        ?>
     </body>
 </html>
 

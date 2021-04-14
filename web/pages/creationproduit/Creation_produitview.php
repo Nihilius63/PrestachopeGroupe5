@@ -16,7 +16,7 @@
     </div>
     <div class="form-example">
         <label for="prix">prix</label>
-        <input type="number" name="prix" id="description" required>
+        <input type="text" name="prix" id="description" required>
     </div>
     <div class="form-example">
         <label for="stock">Stock</label>

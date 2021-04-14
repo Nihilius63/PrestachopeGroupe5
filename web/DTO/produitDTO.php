@@ -7,28 +7,45 @@
                 private $description;
                 private $stock;
                 private $idCategorie;
-                
-                public function getId() {
+                private $image;
+
+                public function getImage() 
+                {
+                    return $this->image;
+                }
+
+                public function setImage($image): void 
+                {
+                    $this->image = $image;
+                }
+
+                public function getId() 
+                {
                     return $this->id;
                 }
 
-                public function setId($id): void {
+                public function setId($id): void 
+                {
                     $this->id = $id;
                 }
 
-                public function getNom() {
+                public function getNom() 
+                {
                     return $this->nom;
                 }
 
-                public function getPrix() {
+                public function getPrix() 
+                {
                     return $this->prix;
                 }
 
-                public function getDescription() {
+                public function getDescription()
+                {
                     return $this->description;
                 }
 
-                public function getStock() {
+                public function getStock() 
+                {
                     return $this->stock;
                 }
 
