@@ -8,7 +8,7 @@ html{
 }
 body{
     background-color: black;
-    background-image: url("../img/b4.jpg");
+    background-image: url("../img/b6.jpg");
     background-size: 100%;
 }
 .head{
@@ -34,4 +34,32 @@ body{
 }
 .head .active{
     opacity: 1;
+}
+.info{
+    width: 100%;
+    height: 850px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+h2{
+    color: white;
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 3.2rem;
+}
+.info p{
+    color: white;
+    font-size: 2.3rem;
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: 4px;;
+}
+.adresse, .telephone, .horraire{
+    margin-bottom: 20px;
+}
+.adresse p, .telephone p, .horraire p{
+    margin-left: 20px;
+}
+.carte iframe{
+    border: none;
 }
