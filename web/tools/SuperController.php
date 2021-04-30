@@ -23,7 +23,7 @@ class SuperController
                 case "new_product":
                 {
                     include_once("pages/header.php");
-                    include_once '/xampp/htdocs/PrestachopeGroupe5/web/DAO/categorieDAO.php';
+                    include_once 'DAO/categorieDAO.php';
                     include_once 'pages/creationproduit/Creation_produitcontrolleur.php';
                     $instanceController = new Creation_produitcontrolleur();
                     $instanceController->includeView();
@@ -35,7 +35,6 @@ class SuperController
                         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                         if(isset($_POST["submit"])) 
                         {
-                            echo "wtf";
                             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
                             if($check !== false) 
                             {
@@ -117,21 +116,21 @@ class SuperController
                     include_once 'pages/deleteproduit/delete_produitcontrolleur.php';
                     $instanceController = new delete_produitcontrolleur();
                     $instanceController->includeView();
-                    if (isset($_POST['categorie']))
+                    if (isset($_POST['produit']))
                     {
-                        $instanceController->deleteproduit($_POST['categorie']);
+                        $instanceController->deleteproduit($_POST['produit']);
                     }
                 break;
                 }
                 case "delete_categorie":
                 {
                     include_once("pages/header.php");
-                    include_once 'pages/deleteproduit/delete_produitcontrolleur.php';
+                    include_once 'pages/deletecategorie/delete_categoriecontrolleur.php';
                     $instanceController = new delete_categoriecontrolleur();
                     $instanceController->includeView();
-                    if (isset($_POST['produit']))
+                    if (isset($_POST['categorie']))
                     {
-                        $instanceController->deletecategorie($_POST['produit']);
+                        $instanceController->deletecategorie($_POST['categorie']);
                     }
                 break;
                 }
@@ -170,6 +169,7 @@ class SuperController
                 break;
                 }
                 case "connexion":
+                {
                     include_once("pages/header.php");
                     include_once 'pages/connexion/Connexion_controller.php';
                     $instanceController = new Connexion_controller();
@@ -179,6 +179,11 @@ class SuperController
                             $instanceController->connectUtilisateur($_POST['email'], $_POST['mdp']);
                         }
                 break;
+                }
+                case "pagerecherche":
+                {
+                    
+                }
             }
         }
 }

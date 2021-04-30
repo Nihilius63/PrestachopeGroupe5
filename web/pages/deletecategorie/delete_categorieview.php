@@ -10,7 +10,7 @@
         <select name="categorie">
         <option value="">--Choisissez une categorie--</option>
         <?php
-            include_once 'C:\xampp\htdocs\PrestachopeGroupe5\web\DAO\categorieDAO.php';
+            include_once 'DAO\categorieDAO.php';
             $categories=categorieDAO::selectcategorie();
             foreach ($categories as $categorie)
             {

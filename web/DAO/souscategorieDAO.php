@@ -30,5 +30,22 @@ class souscategorieDAO
         $dbbb=$dbb->prepare('DELETE FROM prestachope_bdd5.souscategorie WHERE idSousCategorie=? ');
     	$dbbb->execute(array($souscategorieDTO->getIdSousCategorie()));
     }
+        public static function selectsouscategoriesbycategories($categorieDTO) 
+    {
+        include_once 'DTO/souscategorieDTO.php';
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM prestachope_bdd5.souscategorie where idCategorie=?');
+    	$dbbb->execute(array($categorieDTO->getIdCategorie()));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $souscate= new souscategorieDTO();
+            $souscate->setIdSousCategorie($db['idSousCategorie']);
+            $souscate->setNomSousCategorie($db['nomSousCategorie']);
+            $tab[]=$souscate;
+    	}
+        return $tab;
+    }
 }
 ?>

@@ -10,7 +10,7 @@
         <select name="produit">
         <option value="">--Choisissez un produit--</option>
         <?php
-        include_once 'C:\xampp\htdocs\PrestachopeGroupe5\web\DAO\produitDAO.php';
+        include_once 'DAO\produitDAO.php';
              $produits=produitDAO::selectallproduit();
              foreach ($produits as $produit)
              {

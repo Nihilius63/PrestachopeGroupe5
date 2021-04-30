@@ -55,5 +55,26 @@ class produitDAO
     	}
         return $tab;
     }
+        public static function selectproduitbycategorie($categorieDTO) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM `produit` AS PRO INNER JOIN categorie as CAT ON CAT.idCategorie=PRO.idCategorie WHERE PRO.idCategorie=2');
+    	$dbbb->execute(array($categorieDTO->getIdCategorie()));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $produit= new produitDTO();
+            $produit->setId($db['idProduit']);
+            $produit->setNom($db['nom']);
+            $produit->setPrix($db['prix']);
+            $produit->setDescription($db['description']);
+            $produit->setStock($db['stock']);
+            $produit->setIdCategorie($db['idCategorie']);
+            $produit->setImage($db['Image']);
+            $tab[]=$produit;
+    	}
+        return $tab;
+    }
 }
 ?>
