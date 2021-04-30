@@ -33,6 +33,17 @@
              }
         ?>
         </select><br>
+        <label for="souscategorie">Choisissez une souscategorie :</label>
+        <select name="souscategorie">
+        <option value="">--Choisissez une souscategorie--</option>
+        <?php
+             $categories=souscategorieDAO::selectsouscategories();
+             foreach ($categories as $categorie)
+             {
+                echo '<option value='.$categorie->getIdSousCategorie().'>'.$categorie->getNomSousCategorie().'</option>';
+             }
+        ?>
+        </select><br>
         <label for="fileToUpload">Image:</label>
         <input type="file" name="fileToUpload" id="fileToUpload"><br>
         <input type="submit" value="Ajouter" name="submit">

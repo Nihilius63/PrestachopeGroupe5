@@ -7,10 +7,22 @@ class PagerechercheControlleur
     }
         public function selectbycategorie($id) 
     {
-        include_once 'DAO/categorieDAO.php';
+        include_once 'DAO/produitDAO.php';
+        include_once 'DTO/produitDTO.php';
         include_once 'DTO/categorieDTO.php';
-        $categorie=newcategorieDTO();
+        $categorie=new categorieDTO();
         $categorie->setIdCategorie($id);
-        produitDAO::deleteproduit($categorie);
+        $content=produitDAO::selectproduitbycategorie($categorie);
+        return $content;
+    }
+            public function selectbysouscategorie($id) 
+    {
+        include_once 'DAO/produitDAO.php';
+        include_once 'DTO/produitDTO.php';
+        include_once 'DTO/categorieDTO.php';
+        $souscategorie=new souscategorieDTO();
+        $souscategorie->setIdSousCategorie($id);
+        $content=produitDAO::selectproduitbysouscategorie($souscategorie);
+        return $content;
     }
 }

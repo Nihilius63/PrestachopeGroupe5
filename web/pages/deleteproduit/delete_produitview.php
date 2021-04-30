@@ -12,9 +12,9 @@
         <?php
         include_once 'DAO\produitDAO.php';
              $produits=produitDAO::selectallproduit();
-             foreach ($produits as $produit)
+             foreach ($produits as $content)
              {
-                echo '<option value='.$produit->getId().'>'.$produit->getNom().'</option>';
+                echo '<option value='.$content->getId().'>'.$content->getNom().'</option>';
              }
         ?>
         </select>

@@ -4,8 +4,8 @@ class produitDAO
     public static function insertproduct($produitDTO) 
     {
         $dbb = databaselinker::getconnexion();
-        $dbbb=$dbb->prepare('INSERT INTO prestachope_bdd5.produit(nom, prix, description, stock,idCategorie,image) VALUES (?,?,?,?,?,?)');
-    	$dbbb->execute(array($produitDTO->getNom(),$produitDTO->getPrix(),$produitDTO->getDescription(),$produitDTO->getStock(),$produitDTO->getIdCategorie(),$produitDTO->getImage()));
+        $dbbb=$dbb->prepare('INSERT INTO prestachope_bdd5.produit(nom, prix, description, stock,idCategorie,image,idSousCategorie) VALUES (?,?,?,?,?,?,?)');
+    	$dbbb->execute(array($produitDTO->getNom(),$produitDTO->getPrix(),$produitDTO->getDescription(),$produitDTO->getStock(),$produitDTO->getIdCategorie(),$produitDTO->getImage(),$produitDTO->getIdsousCategorie()));
     }
         public static function selectallproduit() 
     {
@@ -71,7 +71,28 @@ class produitDAO
             $produit->setDescription($db['description']);
             $produit->setStock($db['stock']);
             $produit->setIdCategorie($db['idCategorie']);
-            $produit->setImage($db['Image']);
+            $produit->setImage($db['image']);
+            $tab[]=$produit;
+    	}
+        return $tab;
+    }
+        public static function selectproduitbysouscategorie($souscategorieDTO) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM `produit` AS PRO INNER JOIN souscategorie as SO ON SO.idSousCategorie=PRO.idSousCategorie WHERE PRO.idSousCategorie=?');
+    	$dbbb->execute(array($souscategorieDTO->getIdSousCategorie()));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $produit= new produitDTO();
+            $produit->setId($db['idProduit']);
+            $produit->setNom($db['nom']);
+            $produit->setPrix($db['prix']);
+            $produit->setDescription($db['description']);
+            $produit->setStock($db['stock']);
+            $produit->setIdCategorie($db['idCategorie']);
+            $produit->setImage($db['image']);
             $tab[]=$produit;
     	}
         return $tab;

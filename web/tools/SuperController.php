@@ -24,12 +24,13 @@ class SuperController
                 {
                     include_once("pages/header.php");
                     include_once 'DAO/categorieDAO.php';
+                    include_once 'DAO/souscategorieDAO.php';
                     include_once 'pages/creationproduit/Creation_produitcontrolleur.php';
                     $instanceController = new Creation_produitcontrolleur();
                     $instanceController->includeView();
-                    if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie']))
+                    if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$_POST['souscategorie']))
                     {
-                        $target_dir = "C:/xampp/htdocs/PrestachopeGroupe5/assets/images/";
+                        $target_dir = "C:/xampp/htdocs/PrestachopeGroupe5/web/assets/img/";
                         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                         $uploadOk = 1;
                         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -81,7 +82,7 @@ class SuperController
                                 echo "Sorry, there was an error uploading your file.";
                             }
                         }
-                        $instanceController->newproduct($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$target_file);
+                        $instanceController->newproduct($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$target_file,$_POST['souscategorie']);
                     }
                         
                     }
@@ -182,7 +183,8 @@ class SuperController
                 }
                 case "pagerecherche":
                 {
-                    
+                    include_once("pages/header.php");
+                    include_once 'pages/pagerecherche/pagerechercheview.php';
                 }
             }
         }

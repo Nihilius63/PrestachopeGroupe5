@@ -57,7 +57,7 @@ CREATE TABLE Produit(
         prix        Varchar (20) NOT NULL ,
         description Text Not NULL ,
         stock       Int NOT NULL ,
-        image        Varchar (40) NOT NULL ,
+        image        Varchar (100) NOT NULL ,
         idCategorie Int NOT NULL,
         idSousCategorie Int NOT NULL,
 	CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
@@ -94,21 +94,6 @@ CREATE TABLE Commande(
 
 	,CONSTRAINT Commande_Utilisateurs_FK FOREIGN KEY (idClient) REFERENCES Utilisateurs(idClient)
 )ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: SousCategorie
-#------------------------------------------------------------
-
-CREATE TABLE SousCategorie(
-        idSousCategorie  Int  Auto_increment  NOT NULL ,
-        nomSousCategorie Varchar (20) NOT NULL ,
-        idCategorie      Int NOT NULL
-	,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie) 
-
-	,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
-)ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: Contenir

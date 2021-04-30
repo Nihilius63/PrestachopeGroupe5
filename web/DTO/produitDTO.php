@@ -8,6 +8,17 @@
                 private $stock;
                 private $idCategorie;
                 private $image;
+                private $idsouscategorie;
+                
+                public function getIdsouscategorie() 
+                {
+                    return $this->idsouscategorie;
+                }
+
+                public function setIdsouscategorie($idsouscategorie): void 
+                {
+                    $this->idsouscategorie = $idsouscategorie;
+                }
 
                 public function getImage() 
                 {

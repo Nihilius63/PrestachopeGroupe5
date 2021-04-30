@@ -26,12 +26,12 @@
                 <div class="dropdown">
                     <ul>
                         <li class="ligne">
-                            <a href="index.php?categorie='.$all->getCategorieProduit().'&page=pagerecherche" value='.$all->getCategorieProduit().'>'.$all->getCategorieProduit().'</a>
+                            <a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a>
                             <ul class="sub-menu">';
                                 foreach ($souscate as $souscat) 
                                 {
                                     echo'
-                                    <li><a href="index.php?souscate='.$souscat->getNomSousCategorie().'&page=pagerecherche"  value='.$souscat->getNomSousCategorie().'>'.$souscat->getNomSousCategorie().'</a></li>';
+                                    <li><a href="index.php?souscate='.$souscat->getIdSousCategorie().'&page=pagerecherche"  value='.$souscat->getIdSousCategorie().'>'.$souscat->getNomSousCategorie().'</a></li>';
                                 }
                                 echo '
                             </ul>

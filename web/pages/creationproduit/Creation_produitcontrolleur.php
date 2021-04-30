@@ -5,7 +5,7 @@ class Creation_produitcontrolleur
     {
         include_once 'Creation_produitview.php';
     }
-    public function newproduct($nom,$description,$prix,$stock,$categorie,$image) 
+    public function newproduct($nom,$description,$prix,$stock,$categorie,$image,$idsouscategorie) 
     {
         include_once 'DAO/produitDAO.php';
         include_once 'DTO/produitDTO.php';
@@ -16,6 +16,7 @@ class Creation_produitcontrolleur
         $produit->setStock($stock);
         $produit->setIdCategorie($categorie);
         $produit->setImage($image);
+        $produit->setIdsouscategorie($idsouscategorie);
         produitDAO::insertproduct($produit);
     }
 }
