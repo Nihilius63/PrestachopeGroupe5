@@ -18,7 +18,7 @@
             <div class="mileu">
                 <div class="mid">
                     <div class="title">
-                        <h1> PRESTACHOPE </h1>
+                        <h1> PRESTACH<span>O</span>PE </h1>
                     </div>
                     <p> Boutique de biere de tous types </p>
                     <div class="btn-shop">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="footer">
-                <p> Designed & developed by Nathim Dylan Lucas </p>
+                <p> <span>Designed & developed by </span> Nathim Dylan Lucas </p>
             </div>
         </div>
     </body>
