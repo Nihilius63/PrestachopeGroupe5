@@ -1,0 +1,14 @@
+.form
+{
+    display: grid;
+    justify-content: center;
+    margin-top: 10px;
+    border: 0.25em solid;
+    padding: 10px;
+    width: 300px;
+    margin-left: 40%;
+}
+input 
+{
+    margin-top: inherit;
+}
