@@ -34,6 +34,18 @@ CREATE TABLE Categorie(
 	,CONSTRAINT Categorie_PK PRIMARY KEY (idCategorie) 
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: SousCategorie
+#------------------------------------------------------------
+
+CREATE TABLE SousCategorie(
+        idSousCategorie  Int  Auto_increment  NOT NULL ,
+        nomSousCategorie Varchar (20) NOT NULL ,
+        idCategorie      Int NOT NULL
+        ,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie) 
+
+        ,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: Produit

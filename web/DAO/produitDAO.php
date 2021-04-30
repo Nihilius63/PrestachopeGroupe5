@@ -58,7 +58,7 @@ class produitDAO
         public static function selectproduitbycategorie($categorieDTO) 
     {
         $dbb = databaselinker::getconnexion();
-        $dbbb=$dbb->prepare('SELECT * FROM `produit` AS PRO INNER JOIN categorie as CAT ON CAT.idCategorie=PRO.idCategorie WHERE PRO.idCategorie=2');
+        $dbbb=$dbb->prepare('SELECT * FROM `produit` AS PRO INNER JOIN categorie as CAT ON CAT.idCategorie=PRO.idCategorie WHERE PRO.idCategorie=?');
     	$dbbb->execute(array($categorieDTO->getIdCategorie()));
         $d = $dbbb->fetchAll();
         $tab=[];

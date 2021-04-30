@@ -5,12 +5,12 @@ class PagerechercheControlleur
     {
         include_once 'delete_produitview.php';
     }
-        public function deleteproduit($id) 
+        public function selectbycategorie($id) 
     {
         include_once 'DAO/categorieDAO.php';
         include_once 'DTO/categorieDTO.php';
         $categorie=newcategorieDTO();
-        $categorie->setId($id);
+        $categorie->setIdCategorie($id);
         produitDAO::deleteproduit($categorie);
     }
 }
