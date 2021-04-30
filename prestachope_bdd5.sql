@@ -47,9 +47,11 @@ CREATE TABLE Produit(
         stock       Int NOT NULL ,
         image        Varchar (40) NOT NULL ,
         idCategorie Int NOT NULL,
-	CONSTRAINT Produit_PK PRIMARY KEY (idProduit),
+        idSousCategorie Int NOT NULL,
+	CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
 
-	CONSTRAINT Produit_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
+        ,CONSTRAINT Produit_SousCategorie_FK FOREIGN KEY (idSousCategorie) REFERENCES SousCategorie(idSousCategorie)ON DELETE CASCADE
+	,CONSTRAINT Produit_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
