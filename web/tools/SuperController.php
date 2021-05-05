@@ -186,6 +186,12 @@ class SuperController
                     include_once("pages/header.php");
                     include_once 'pages/pagerecherche/pagerechercheview.php';
                 }
+                case "detail":
+                {
+                    include_once("pages/header.php");
+                    include_once "pages/details/detailview.php";
+                    break;
+                }
             }
         }
 }

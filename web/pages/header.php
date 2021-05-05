@@ -44,6 +44,12 @@
                     <a href="index.php?page=connexion"  value="connexion" >Connexion</a>
                     <a href="index.php?page=inscription"  value="inscription" >Inscription</a>
                </div>
+                <?php
+                if (isset($_SESSION['nom'],$_SESSION['prenom']))
+                {
+                    echo $_SESSION['nom'],$_SESSION['prenom'];
+                }
+                ?>
             </div>
         </header>
     </body>

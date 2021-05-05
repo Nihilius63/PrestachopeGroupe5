@@ -18,4 +18,5 @@ foreach ($contents as $content)
     echo $content->getStock().'<br>';
     echo $content->getIdCategorie().'<br>';
     echo $content->getImage().'<br>';
+    echo '<a href="index.php?produit='.$content->getId().'&page=detail">'.$content->getNom().'</a>';
 }

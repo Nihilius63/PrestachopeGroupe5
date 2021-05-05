@@ -17,11 +17,12 @@ class utilisateursDAO
         return $erreur;
     }
     
-    public static function connexUtilisateur($utilisateurDTO) {
+    public static function connexUtilisateur($utilisateurDTO) 
+    {
         $bdd= databaselinker::getconnexion();
         $resultat=$bdd->prepare('SELECT * FROM prestachope_bdd5.utilisateurs WHERE mail=? and motdepasse=?');
         $resultat->execute(array($utilisateurDTO->getMail(),$utilisateurDTO->getMotdepasse()));
         $result=$resultat->fetchAll();
-        var_dump($result);
+        return $result;
     }
 }

@@ -12,7 +12,17 @@ class Connexion_controller {
             $utilisateur=new utilisateursDTO();
             $utilisateur->setMail($email);
             $utilisateur->setMotdepasse($motdepasse);
-            utilisateursDAO::connexUtilisateur($utilisateur);
+            $connexion=utilisateursDAO::connexUtilisateur($utilisateur);
+            foreach ($connexion as $co)
+            {
+                if($co['mail']==$email && $co['motdepasse']==$motdepasse)
+                {
+                    $_SESSION['nom']=$co['nom'];
+                    $_SESSION['prenom']=$co['prenom'];
+                    $_SESSION['panier']=array();
+                }
+            }
+            $_SESSION['panier']=array();
         }
         /*public function redirectUser(){
             header ('location: index.php?page=presentation');
