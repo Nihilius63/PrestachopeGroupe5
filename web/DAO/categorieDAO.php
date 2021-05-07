@@ -24,6 +24,22 @@ class categorieDAO
     	}
         return $tab;
     }
+     public static function selectcategoriebyid($id) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM `categorie` WHERE idCategorie=?');
+    	$dbbb->execute(array($id));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $categorie= new categorieDTO();
+            $categorie->setIdCategorie($db['idCategorie']);
+            $categorie->setCategorieProduit($db['categorieProduit']);
+            $tab[]=$categorie;
+    	}
+        return $tab;
+    }
     public static function deletecategorie($categorieDTO)
     {
         $dbb = databaselinker::getconnexion();

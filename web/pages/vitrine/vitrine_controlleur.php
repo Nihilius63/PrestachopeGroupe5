@@ -11,4 +11,17 @@ class vitrine_controlleur {
         include_once 'DTO/produitDTO.php';
         return produitDAO::selectproduitrandom($id);
     }
+    
+    public function IncludeCategorie($id)
+    {
+        include_once 'DAO/categorieDAO.php';
+        include_once 'DTO/categorieDTO.php';
+        return categorieDAO::selectcategoriebyid($id);
+    }
+    public function IncludeAllCategorie()
+    {
+        include_once 'DAO/categorieDAO.php';
+        include_once 'DTO/categorieDTO.php';
+        return categorieDAO::selectcategorie();
+    }
 }
