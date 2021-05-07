@@ -12,8 +12,9 @@ class paniercontrolleur
             $tab=[];
             foreach ($_SESSION['panier'] as $panier =>$value)
             {
-                $tab[];
+                $tab[$panier]=$value;
             }
+            return $tab;
         }
     }
 }

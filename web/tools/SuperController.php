@@ -40,7 +40,7 @@ class SuperController
                     $instanceController->includeView();
                     if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$_POST['souscategorie']))
                     {
-                        $target_dir = "C:/xampp/htdocs/PrestachopeGroupe5/web/assets/img/";
+                        $target_dir = "assets/img/";
                         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                         $uploadOk = 1;
                         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -205,7 +205,15 @@ class SuperController
                 }
                 case "achat":
                 {
+                    include_once("pages/header.php");
                     include_once"pages/achat/achatview.php";
+                    break;
+                }
+                case "panier":
+                {
+                    include_once("pages/header.php");
+                    include_once"pages/panier/panierview.php";
+                    break;
                 }
             }
         }

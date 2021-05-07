@@ -19,7 +19,6 @@ class Connexion_controller {
                 {
                     $_SESSION['nom']=$co['nom'];
                     $_SESSION['prenom']=$co['prenom'];
-                    $_SESSION['panier']=array();
                 }
             }
             $_SESSION['panier']=array();

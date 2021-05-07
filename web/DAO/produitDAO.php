@@ -117,5 +117,25 @@ class produitDAO
     	}
         return $tab;
     }
+        public static function selectproduitbynom($nom) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM `produit` WHERE nom=?');
+    	$dbbb->execute(array($nom));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $produit= new produitDTO();
+            $produit->setId($db['idProduit']);
+            $produit->setNom($db['nom']);
+            $produit->setPrix($db['prix']);
+            $produit->setDescription($db['description']);
+            $produit->setStock($db['stock']);
+            $produit->setIdCategorie($db['idCategorie']);
+            $produit->setImage($db['image']);
+            return $produit;
+    	}
+    }
 }
 ?>

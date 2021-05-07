@@ -13,9 +13,9 @@
     echo $contents->getImage().'<br>';
     $nom=$contents->getNom();
   }
-  ?>
-<form action="index.php?page=achat&nom=<?php$nom?>">
-<input type="number" name="quantité" value="1">
-<input type="Submit" value="Acheter">
-</form>
+echo '
+<form action="index.php?page=achat&nom='.$nom.'" method="POST">
+<input type="number" name="quantite" value="1">
+<input type="submit" value="Acheter">
+</form> ';
 
