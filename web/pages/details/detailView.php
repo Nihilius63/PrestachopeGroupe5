@@ -11,9 +11,10 @@
     echo $contents->getStock().'<br>';
     echo $contents->getIdCategorie().'<br>';
     echo $contents->getImage().'<br>';
+    $nom=$contents->getNom();
   }
   ?>
-<form action="index.php?page=achat">
+<form action="index.php?page=achat&nom=<?php$nom?>">
 <input type="number" name="quantité" value="1">
 <input type="Submit" value="Acheter">
 </form>

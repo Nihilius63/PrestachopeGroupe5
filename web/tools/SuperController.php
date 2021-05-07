@@ -193,6 +193,10 @@ class SuperController
                     include_once "pages/details/detailview.php";
                     break;
                 }
+                case "achat":
+                {
+                    include_once"pages/achat/achatview.php";
+                }
             }
         }
 }

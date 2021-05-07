@@ -6,6 +6,9 @@
 -- Généré le : ven. 07 mai 2021 à 13:08
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
+DROP DATABASE IF EXISTS prestachope_bdd5;
+CREATE DATABASE prestachope_bdd5;
+USE prestachope_bdd5;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
