@@ -12,7 +12,7 @@
             <div class="containt">
                 <div class="top">
                     <div class="titre">
-                        <h1> Prestachope </h1>
+                        <h1> <a href="index.php?page=vitrine">Prestachope </a></h1>
                     </div>
                 </div>
                 <div class="dropdown">

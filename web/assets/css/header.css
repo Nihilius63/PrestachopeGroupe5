@@ -9,6 +9,10 @@
    background-color: black;
    color: #fff;
 }
+.titre a{
+    text-decoration: none;
+    color: #fff;
+}
 .top{
     display: flex;
     width: 100%;

@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.imgProduit{
+    max-height: 240px;
+}
+.produit{
+    height: 240px;
+    width: auto;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+}
+.listproduit{
+    display: flex;
+}
+.Nom h1{
+    font-size: 3.2rem;
+}
