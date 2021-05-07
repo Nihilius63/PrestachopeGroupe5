@@ -15,6 +15,7 @@
                         <h1> Prestachope </h1>
                     </div>
                 </div>
+                <div class="dropdown">
                 <?php
                 include_once 'DAO/categorieDAO.php';
                 include_once 'DAO/souscategorieDAO.php';
@@ -23,7 +24,7 @@
                 {
                 $souscate=souscategorieDAO::selectsouscategoriesbycategories($all);
                 echo '
-                <div class="dropdown">
+                <div class="cat">
                     <ul>
                         <li class="ligne">
                             <a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a>
@@ -40,16 +41,21 @@
                 </div>';
                 }
                 ?>
-                <div class="btn">
-                    <a href="index.php?page=connexion"  value="connexion" >Connexion</a>
-                    <a href="index.php?page=inscription"  value="inscription" >Inscription</a>
-               </div>
-                <?php
-                if (isset($_SESSION['nom'],$_SESSION['prenom']))
-                {
-                    echo '<a href="index.php?page=panier">Panier</a>';
-                }
-                ?>
+                </div>
+                <div class="btn droite">
+                    <?php
+                    if (isset($_SESSION['nom'],$_SESSION['prenom']))
+                    {
+                        echo '<a href="index.php?page=panier">Panier</a>';
+                    }
+                    else {
+                        ?>
+                            <a href="index.php?page=connexion"  value="connexion" >Connexion</a>
+                            <a href="index.php?page=inscription"  value="inscription" >Inscription</a>
+                        <?php
+                    }
+                    ?>
+                </div>           
             </div>
         </header>
     </body>

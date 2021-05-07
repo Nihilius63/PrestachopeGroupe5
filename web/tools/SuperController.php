@@ -17,7 +17,17 @@ class SuperController
                 }
                 case "info":
                 {
-                    include_once 'pages/information/information_view.php';
+                    include_once 'pages/information/information_controlleur.php';
+                    $instanceController = new information_controlleur();
+                    $instanceController->includeView();
+                    break;
+                }
+                 case "vitrine":
+                {
+                    include_once("pages/header.php");
+                    include_once 'pages/vitrine/vitrine_controlleur.php';
+                    $instanceController = new vitrine_controlleur();
+                    $instanceController->includeView();
                     break;
                 }
                 case "new_product":

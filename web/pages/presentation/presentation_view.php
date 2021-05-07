@@ -22,7 +22,7 @@
                     </div>
                     <p> Boutique de biere de tous types </p>
                     <div class="btn-shop">
-                        <button> <a href="index.php?page=connexion">Page d'achat</a></button>
+                        <button> <a href="index.php?page=vitrine">Page d'achat</a></button>
                     </div>
                 </div>
             </div>
