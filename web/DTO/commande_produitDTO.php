@@ -1,6 +1,7 @@
 <?php
 	class commande_produitDTO
 	{
+                private $idCommande;
 		private $idProduit;
 		private $quantite;
                 public function getIdProduit() {
@@ -9,6 +10,13 @@
 
                 public function getQuantite() {
                     return $this->quantite;
+                }
+                public function getIdCommande() {
+                    return $this->idCommande;
+                }
+
+                public function setIdCommande($idCommande): void {
+                    $this->idCommande = $idCommande;
                 }
 
                 public function setIdProduit($idProduit): void {

@@ -17,6 +17,7 @@ class Connexion_controller {
             {
                 if($co['mail']==$email && $co['motdepasse']==$motdepasse)
                 {
+                    $_SESSION['id']=$co['idClient'];
                     $_SESSION['nom']=$co['nom'];
                     $_SESSION['prenom']=$co['prenom'];
                 }

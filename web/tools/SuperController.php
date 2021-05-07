@@ -215,6 +215,12 @@ class SuperController
                     include_once"pages/panier/panierview.php";
                     break;
                 }
+                case "commande":
+                {
+                    include_once("pages/header.php");
+                    include_once"pages/commande/commandeview.php";
+                    break;
+                }
             }
         }
 }

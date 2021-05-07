@@ -132,6 +132,12 @@ CREATE TABLE `utilisateurs` (
   `timeBan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE Commande_Produit(
+  idCommande Int NOT NULL ,
+  idProduit  Int NOT NULL ,
+  quantite   Int NOT NULL
+)ENGINE=InnoDB;
+
 --
 -- Déchargement des données de la table `utilisateurs`
 --
@@ -183,6 +189,10 @@ ALTER TABLE `souscategorie`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`idClient`);
+
+ALTER TABLE `Commande_Produit`
+  ADD PRIMARY KEY (`idCommande`),
+  ADD PRIMARY KEY (`idProduit`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -246,6 +256,9 @@ ALTER TABLE `contact`
 ALTER TABLE `produit`
   ADD CONSTRAINT `Produit_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE,
   ADD CONSTRAINT `Produit_SousCategorie_FK` FOREIGN KEY (`idSousCategorie`) REFERENCES `souscategorie` (`idSousCategorie`) ON DELETE CASCADE;
+ALTER TABLE `Commande_Produit`
+  ADD CONSTRAINT `Contenir_Commande_FK` FOREIGN KEY (`idCommande`) REFERENCES `Commande`(`idCommande`),
+  ADD CONSTRAINT `Contenir_Produit0_FK` FOREIGN KEY (`idProduit`) REFERENCES `Produit`(`idProduit`),
 
 --
 -- Contraintes pour la table `souscategorie`
