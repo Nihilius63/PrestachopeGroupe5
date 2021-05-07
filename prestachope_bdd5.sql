@@ -1,111 +1,256 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
-DROP DATABASE IF EXISTS prestachope_bdd5;
-CREATE DATABASE prestachope_bdd5;
-USE prestachope_bdd5;
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 07 mai 2021 à 13:08
+-- Version du serveur :  10.4.18-MariaDB
+-- Version de PHP : 8.0.3
 
-#------------------------------------------------------------
-# Table: Utilisateurs
-#------------------------------------------------------------
-
-CREATE TABLE Utilisateurs(
-        idClient   Int  Auto_increment  NOT NULL ,
-        nom        Varchar (40) NOT NULL ,
-        prenom     Varchar (40) NOT NULL ,
-        adresse    Varchar (40) NOT NULL ,
-        mail       Varchar (40) NOT NULL ,
-        motdepasse Varchar (40) NOT NULL ,
-        cagnote    Int NOT NULL ,
-        admin      Int NOT NULL ,
-        ban        Int NOT NULL ,
-        timeBan    TimeStamp NOT NULL
-	,CONSTRAINT Utilisateurs_PK PRIMARY KEY (idClient)
-)ENGINE=InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: Categorie
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE Categorie(
-        idCategorie      Int  Auto_increment  NOT NULL ,
-        categorieProduit Varchar (20) NOT NULL
-	,CONSTRAINT Categorie_PK PRIMARY KEY (idCategorie) 
-)ENGINE=InnoDB;
+--
+-- Base de données : `prestachope_bdd5`
+--
 
-#------------------------------------------------------------
-# Table: SousCategorie
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE SousCategorie(
-        idSousCategorie  Int  Auto_increment  NOT NULL ,
-        nomSousCategorie Varchar (20) NOT NULL ,
-        idCategorie      Int NOT NULL
-        ,CONSTRAINT SousCategorie_PK PRIMARY KEY (idSousCategorie) 
+--
+-- Structure de la table `categorie`
+--
 
-        ,CONSTRAINT SousCategorie_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
-)ENGINE=InnoDB;
+CREATE TABLE `categorie` (
+  `idCategorie` int(11) NOT NULL,
+  `categorieProduit` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-#------------------------------------------------------------
-# Table: Produit
-#------------------------------------------------------------
+--
+-- Déchargement des données de la table `categorie`
+--
 
-CREATE TABLE Produit(
-        idProduit   Int  Auto_increment  NOT NULL ,
-        nom         Varchar (20) NOT NULL ,
-        prix        Varchar (20) NOT NULL ,
-        description Text Not NULL ,
-        stock       Int NOT NULL ,
-        image        Varchar (100) NOT NULL ,
-        idCategorie Int NOT NULL,
-        idSousCategorie Int NOT NULL,
-	CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
+INSERT INTO `categorie` (`idCategorie`, `categorieProduit`) VALUES
+(1, 'Biere'),
+(2, 'Futs');
 
-        ,CONSTRAINT Produit_SousCategorie_FK FOREIGN KEY (idSousCategorie) REFERENCES SousCategorie(idSousCategorie)ON DELETE CASCADE
-	,CONSTRAINT Produit_Categorie_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie) ON DELETE CASCADE
-)ENGINE=InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `commande`
+--
 
-#------------------------------------------------------------
-# Table: Contact
-#------------------------------------------------------------
+CREATE TABLE `commande` (
+  `idCommande` int(11) NOT NULL,
+  `facture` int(11) NOT NULL,
+  `idClient` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE Contact(
-        idContact Int  Auto_increment  NOT NULL ,
-        message   Text NOT NULL ,
-        statuts   Int NOT NULL ,
-        idClient  Int NOT NULL
-	,CONSTRAINT Contact_PK PRIMARY KEY (idContact)
+-- --------------------------------------------------------
 
-	,CONSTRAINT Contact_Utilisateurs_FK FOREIGN KEY (idClient) REFERENCES Utilisateurs(idClient)
-)ENGINE=InnoDB;
+--
+-- Structure de la table `contact`
+--
 
+CREATE TABLE `contact` (
+  `idContact` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `statuts` int(11) NOT NULL,
+  `idClient` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-#------------------------------------------------------------
-# Table: Commande
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE Commande(
-        idCommande Int  Auto_increment  NOT NULL ,
-        facture    Int NOT NULL ,
-        idClient   Int NOT NULL
-	,CONSTRAINT Commande_PK PRIMARY KEY (idCommande)
+--
+-- Structure de la table `produit`
+--
 
-	,CONSTRAINT Commande_Utilisateurs_FK FOREIGN KEY (idClient) REFERENCES Utilisateurs(idClient)
-)ENGINE=InnoDB;
+CREATE TABLE `produit` (
+  `idProduit` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `prix` varchar(20) NOT NULL,
+  `description` text NOT NULL,
+  `stock` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `idCategorie` int(11) NOT NULL,
+  `idSousCategorie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-#------------------------------------------------------------
-# Table: Contenir
-#------------------------------------------------------------
+--
+-- Déchargement des données de la table `produit`
+--
 
-CREATE TABLE Commande_Produit(
-        idCommande Int NOT NULL ,
-        idProduit  Int NOT NULL ,
-        quantite   Int NOT NULL
-	,CONSTRAINT Contenir_PK PRIMARY KEY (idCommande,idProduit)
+INSERT INTO `produit` (`idProduit`, `nom`, `prix`, `description`, `stock`, `image`, `idCategorie`, `idSousCategorie`) VALUES
+(7, 'Biere Heineken 50cl', '1.50', 'Slt a tous c moi la bierre', 1200, 'C:/xampp/htdocs/PrestachopeGroupe5/web/assets/img/téléchargement.jpg', 1, 3),
+(8, 'Futs Desperados 50l', '1.50', 'Slt a tous c moi la bierre', 789, 'C:/xampp/htdocs/PrestachopeGroupe5/web/assets/img/1643-thickbox_default.jpg', 2, 4);
 
-	,CONSTRAINT Contenir_Commande_FK FOREIGN KEY (idCommande) REFERENCES Commande(idCommande)
-	,CONSTRAINT Contenir_Produit0_FK FOREIGN KEY (idProduit) REFERENCES Produit(idProduit)
-)ENGINE=InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `souscategorie`
+--
+
+CREATE TABLE `souscategorie` (
+  `idSousCategorie` int(11) NOT NULL,
+  `nomSousCategorie` varchar(20) NOT NULL,
+  `idCategorie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `souscategorie`
+--
+
+INSERT INTO `souscategorie` (`idSousCategorie`, `nomSousCategorie`, `idCategorie`) VALUES
+(3, 'Blonde', 2),
+(4, 'Blonde', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateurs`
+--
+
+CREATE TABLE `utilisateurs` (
+  `idClient` int(11) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `adresse` varchar(40) NOT NULL,
+  `mail` varchar(40) NOT NULL,
+  `motdepasse` varchar(40) NOT NULL,
+  `cagnote` int(11) NOT NULL,
+  `admin` int(11) NOT NULL,
+  `ban` int(11) NOT NULL,
+  `timeBan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`idClient`, `nom`, `prenom`, `adresse`, `mail`, `motdepasse`, `cagnote`, `admin`, `ban`, `timeBan`) VALUES
+(1, 'Burdin', 'Lucas', 'Non', 'lucas.burdin63@gmail.com', '1234', 0, 0, 0, '2021-05-05 06:53:28');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`idCategorie`);
+
+--
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`idCommande`),
+  ADD KEY `Commande_Utilisateurs_FK` (`idClient`);
+
+--
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`idContact`),
+  ADD KEY `Contact_Utilisateurs_FK` (`idClient`);
+
+--
+-- Index pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD PRIMARY KEY (`idProduit`),
+  ADD KEY `Produit_SousCategorie_FK` (`idSousCategorie`),
+  ADD KEY `Produit_Categorie_FK` (`idCategorie`);
+
+--
+-- Index pour la table `souscategorie`
+--
+ALTER TABLE `souscategorie`
+  ADD PRIMARY KEY (`idSousCategorie`),
+  ADD KEY `SousCategorie_Categorie_FK` (`idCategorie`);
+
+--
+-- Index pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  ADD PRIMARY KEY (`idClient`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `idContact` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produit`
+--
+ALTER TABLE `produit`
+  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `souscategorie`
+--
+ALTER TABLE `souscategorie`
+  MODIFY `idSousCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `Commande_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
+
+--
+-- Contraintes pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD CONSTRAINT `Contact_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
+
+--
+-- Contraintes pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD CONSTRAINT `Produit_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Produit_SousCategorie_FK` FOREIGN KEY (`idSousCategorie`) REFERENCES `souscategorie` (`idSousCategorie`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `souscategorie`
+--
+ALTER TABLE `souscategorie`
+  ADD CONSTRAINT `SousCategorie_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

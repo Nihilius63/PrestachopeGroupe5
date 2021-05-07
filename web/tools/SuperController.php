@@ -185,6 +185,7 @@ class SuperController
                 {
                     include_once("pages/header.php");
                     include_once 'pages/pagerecherche/pagerechercheview.php';
+                    break;
                 }
                 case "detail":
                 {

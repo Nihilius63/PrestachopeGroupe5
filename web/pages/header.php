@@ -47,7 +47,7 @@
                 <?php
                 if (isset($_SESSION['nom'],$_SESSION['prenom']))
                 {
-                    echo $_SESSION['nom'],$_SESSION['prenom'];
+                    echo '<a href="index.php?page=panier">Panier</a>';
                 }
                 ?>
             </div>
