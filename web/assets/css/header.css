@@ -3,51 +3,72 @@
     margin: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 62.5%;
+}
 .containt{
    width: 100%;
-   height: 120px;
+   height: 80px;
    background-color: black;
    color: #fff;
+   display: flex;
+   position: fixed;
+   top: 0;
 }
 .titre a{
     text-decoration: none;
     color: #fff;
+    font-family: 'Uncial Antiqua', cursive;
+     font-size: 2.8rem;
+     letter-spacing: 2px;
+}
+.titre a span{
+    color: purple;
 }
 .top{
     display: flex;
-    width: 100%;
+    width: 20%;
     justify-content: center;
     align-items: center;
 }
 .dropdown{
+    display: flex;
+    width: 60%;
+    align-items: center;
+}
+.btndroite{
+    display: flex;
+    width: 20%;
+    align-items: center;
     justify-content: center;
-    padding-top: 14px;
+    font-size: 2.2rem;
+}
+.btndroite a {
+     text-decoration: none;
+     color: white;
+     margin-right: 12px;
 }
 .dropdown .ligne{
     display: inline-block;
     vertical-align: top;
     font-size: 20px;
-    margin-right:80px;
-    margin-left: 80px;
+    margin-right:20px;
+    margin-left: 20px;
     position: relative;
+    font-family: 'Shadows Into Light', cursive;
+}
+.ligne a{
+    color: #fff;
+    font-size: 2.4rem;
+}
+.ligne h2::first-letter{
+    color: purple;
 }
 .dropdown a{
     text-decoration: none;
-    color: #fff;
 }
 .dropdown li{
     list-style: none;
-}
-.btn{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-top: 12px;
-}
-.btn a {
-    margin-right: 12px;
-    text-decoration: none;
-    color: white;
 }
 .dropdown{
     display: flex;
@@ -56,8 +77,23 @@
     display: none;
     font-size: 15px;
     position: absolute;
-    width: 150px;
+    height: 120px;
+    width: 200px;
+    background-color: black;
+    border-radius: 0 0 10px 10px;
+}
+.sub-menu li{
+    font-size: 1.8rem;
+    margin-left: 20px;
 }
 .dropdown li:hover .sub-menu{
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.ligne a{
+     transition: 0.5s;
+}
+.ligne a:hover{
+    color: purple;
 }

@@ -5,6 +5,10 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="assets/css/header.css"/>
         <link rel="stylesheet" href="assets/css/reset.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/e4c565c7ff.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -12,7 +16,7 @@
             <div class="containt">
                 <div class="top">
                     <div class="titre">
-                        <h1> <a href="index.php?page=vitrine">Prestachope </a></h1>
+                        <h1> <a href="index.php?page=vitrine">Prestach<span>O</span>pe </a></h1>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -27,7 +31,7 @@
                 <div class="cat">
                     <ul>
                         <li class="ligne">
-                            <a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a>
+                            <h2><a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a></h2>
                             <ul class="sub-menu">';
                                 foreach ($souscate as $souscat) 
                                 {
@@ -42,11 +46,11 @@
                 }
                 ?>
                 </div>
-                <div class="btn droite">
+                <div class="btndroite">
                     <?php
                     if (isset($_SESSION['nom'],$_SESSION['prenom']))
                     {
-                        echo '<a href="index.php?page=panier">Panier</a>';
+                        echo '<a href="index.php?page=panier"><i class="fas fa-shopping-cart"></i></a>';
                     }
                     else {
                         ?>
