@@ -39,7 +39,7 @@
                             echo $contents->getDescription().'<br>';
                             $nom=$contents->getNom();
                           ?>
-                        <button> Ajouter au panier </button>
+                        <button> <a href="index.php?page=achat&nom='<?php echo $contents->getNom()?>">Ajouter au panier </a></button>
                   </div>
                       <?php
                   }
