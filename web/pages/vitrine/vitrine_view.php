@@ -30,15 +30,17 @@
                   foreach ($content as $contents)
                   {
                       ?>
+                  <div class="descProduit">
                       <div class="produit">
                           <img class="imgProduit" src= "<?php echo $contents->getImage() ?>"><br>
                       </div>
-                          <?php
-                          echo $contents->getNom().'<br>';
-                          echo $contents->getPrix().'<br>';
-                          echo $contents->getStock().'<br>';
-                          $nom=$contents->getNom();
+                        <h3> <?php echo $contents->getNom() ?> </h3>
+                        <?php
+                            echo $contents->getDescription().'<br>';
+                            $nom=$contents->getNom();
                           ?>
+                        <button> Ajouter au panier </button>
+                  </div>
                       <?php
                   }
                   ?>

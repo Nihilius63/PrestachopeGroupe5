@@ -13,20 +13,34 @@ body{
 .contenue{
     width: 100%;
     height: 100%;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 .imgProduit{
-    max-height: 240px;
+    max-height: 280px;
 }
 .produit{
-    height: 240px;
-    width: auto;
+    height: 280px;
+    max-width: 200px;
     border: solid 1px black;
     display: flex;
     flex-direction: column;
 }
 .listproduit{
     display: flex;
+    width: 100%;
+    justify-content: center;
+        
+}
+.descProduit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    border: solid 1px black;
+    height: 400px;
+    width: 300px;
+    font-size: 2.2rem;
 }
 .Nom h1{
     font-size: 3.2rem;
