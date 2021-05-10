@@ -1,12 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 10 mai 2021 à 14:53
--- Version du serveur :  10.4.14-MariaDB
--- Version de PHP : 7.4.10
-
+-- Généré le : lun. 10 mai 2021 à 15:03
+-- Version du serveur :  10.4.18-MariaDB
+-- Version de PHP : 8.0.3
+DROP DATABASE IF EXISTS prestachope_bdd5;
+CREATE DATABASE prestachope_bdd5;
+USE prestachope_bdd5;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -52,6 +54,18 @@ CREATE TABLE `commande` (
   `idCommande` int(11) NOT NULL,
   `facture` int(11) NOT NULL,
   `idClient` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande_produit`
+--
+
+CREATE TABLE `commande_produit` (
+  `idCommande` int(11) NOT NULL,
+  `idProduit` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -156,105 +170,37 @@ ALTER TABLE `categorie`
 -- Index pour la table `commande`
 --
 ALTER TABLE `commande`
-  ADD PRIMARY KEY (`idCommande`),
-  ADD KEY `Commande_Utilisateurs_FK` (`idClient`);
+  ADD PRIMARY KEY (`idCommande`);
+
+--
+-- Index pour la table `commande_produit`
+--
+ALTER TABLE `commande_produit`
+  ADD PRIMARY KEY (`idCommande`,`idProduit`);
 
 --
 -- Index pour la table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`idContact`),
-  ADD KEY `Contact_Utilisateurs_FK` (`idClient`);
+  ADD PRIMARY KEY (`idContact`);
 
 --
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
-  ADD PRIMARY KEY (`idProduit`),
-  ADD KEY `Produit_SousCategorie_FK` (`idSousCategorie`),
-  ADD KEY `Produit_Categorie_FK` (`idCategorie`);
+  ADD PRIMARY KEY (`idProduit`);
 
 --
 -- Index pour la table `souscategorie`
 --
 ALTER TABLE `souscategorie`
-  ADD PRIMARY KEY (`idSousCategorie`),
-  ADD KEY `SousCategorie_Categorie_FK` (`idCategorie`);
+  ADD PRIMARY KEY (`idSousCategorie`);
 
 --
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`idClient`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `categorie`
---
-ALTER TABLE `categorie`
-  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT pour la table `commande`
---
-ALTER TABLE `commande`
-  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `idContact` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `produit`
---
-ALTER TABLE `produit`
-  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT pour la table `souscategorie`
---
-ALTER TABLE `souscategorie`
-  MODIFY `idSousCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `utilisateurs`
---
-ALTER TABLE `utilisateurs`
-  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `commande`
---
-ALTER TABLE `commande`
-  ADD CONSTRAINT `Commande_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
-
---
--- Contraintes pour la table `contact`
---
-ALTER TABLE `contact`
-  ADD CONSTRAINT `Contact_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
-
---
--- Contraintes pour la table `produit`
---
-ALTER TABLE `produit`
-  ADD CONSTRAINT `Produit_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE,
-  ADD CONSTRAINT `Produit_SousCategorie_FK` FOREIGN KEY (`idSousCategorie`) REFERENCES `souscategorie` (`idSousCategorie`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `souscategorie`
---
-ALTER TABLE `souscategorie`
-  ADD CONSTRAINT `SousCategorie_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
