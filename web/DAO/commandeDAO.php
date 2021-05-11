@@ -4,6 +4,7 @@ class commandeDAO {
     {
         $dbb = databaselinker::getconnexion();
         $dbbb=$dbb->prepare('INSERT INTO prestachope_bdd5.commande(facture, idClient) VALUES (?,?)');
-    	$dbbb->execute(array($commandeDTO->getFacture(),$commandeDTO->getIdClient));
+    	$dbbb->execute(array($commandeDTO->getFacture(),$commandeDTO->getIdClient()));
+        return $dbb->lastInsertId();
     }
 }

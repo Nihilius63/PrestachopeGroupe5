@@ -17,4 +17,14 @@ class paniercontrolleur
             return $tab;
         }
     }
+    public function testclear() 
+    {
+        if (isset($_GET['panier']))
+        {
+            unset($_SESSION['panier']);
+            $_SESSION['panier']=array();
+            header('Location: index.php?page=vitrine');
+            die();
+        }
+    }
 }

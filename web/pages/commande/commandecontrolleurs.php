@@ -21,8 +21,11 @@ class commandecontrolleurs
     {
         include_once 'DAO/produitDAO.php';
         include_once 'DTO/produitDTO.php';
-        include_once 'DAO/commandeDAO';
-        include_once 'DTO/commandeDTO';
+        include_once 'DAO/commandeDAO.php';
+        include_once 'DTO/commandeDTO.php';
+        include_once 'DAO/commande_produitDAO.php';
+        include_once 'DTO/commande_produitDTO.php';
+        include_once 'pages/panier/paniercontrolleur.php';
         $instanceController = new paniercontrolleur();
         $content=$instanceController->content();
         $supertotal=0;
@@ -35,9 +38,8 @@ class commandecontrolleurs
         $commande= new commandeDTO();
         $commande->setFacture($supertotal);
         $commande->setIdClient($_SESSION['id']);
-        commandeDAO::insertcommande($commande);
-        $id=databaselinker::getconnexion();
-        $id=$id::lastInsertId();
+        $id = commandeDAO::insertcommande($commande);
+        echo $id;
         foreach ($content as $contents=>$values)
         {
             $produit=produitDAO::selectproduitbynom($contents);
@@ -45,6 +47,7 @@ class commandecontrolleurs
             $produits->setIdCommande($id);
             $produits->setIdProduit($produit->getId());
             $produits->setQuantite($values);
+            commande_produitDAO::insertcommande($produits);
         }
     }
 }

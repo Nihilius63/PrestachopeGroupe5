@@ -8,6 +8,7 @@
         include_once 'DAO/produitDAO.php';
         include_once 'DTO/produitDTO.php';
             $instanceController = new paniercontrolleur();
+            $content=$instanceController->testclear();
             $content=$instanceController->content();
             $supertotal=0;
             foreach ($content as $contents=>$values)
@@ -17,12 +18,13 @@
                 $produit=produitDAO::selectproduitbynom($contents);
                 echo $produit->getPrix().'<br>';
                 echo "Quantité: ".$values.'<br>';
-                $total=$produit->getprix()*$values;
+                $total=$produit->getPrix()*$values;
                 echo "Total:".$total.'<br>';
                 $supertotal=$total+$supertotal;
             }
         
-       echo '<a href="index.php?page=commande">Valider ma commande '.$supertotal.'</a>';
+       echo '<a href="index.php?page=commande">Valider ma commande '.$supertotal.'</a><br>';
+       echo '<a href="index.php?page=panier&panier=clear">Vider le panier</a>';
        ?>
     </body>
 </html>

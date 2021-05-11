@@ -123,7 +123,6 @@ class produitDAO
         $dbbb=$dbb->prepare('SELECT * FROM `produit` WHERE nom=?');
     	$dbbb->execute(array($nom));
         $d = $dbbb->fetchAll();
-        $tab=[];
     	foreach ($d as $db) 
     	{
             $produit= new produitDTO();
