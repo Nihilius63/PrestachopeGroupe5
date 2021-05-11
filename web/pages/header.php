@@ -54,8 +54,8 @@
                     }
                     else {
                         ?>
-                            <a href="index.php?page=connexion"  value="connexion" >Connexion</a>
-                            <a href="index.php?page=inscription"  value="inscription" >Inscription</a>
+                            <a href="index.php?page=connexion"  value="connexion" ><i class="far fa-user"></i></a>
+                            <a href="index.php?page=inscription"  value="inscription" ><i class="far fa-user"></i></a>
                         <?php
                     }
                     ?>
