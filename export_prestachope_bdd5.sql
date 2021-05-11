@@ -3,12 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 10 mai 2021 à 15:03
+-- Généré le : mar. 11 mai 2021 à 17:13
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 DROP DATABASE IF EXISTS prestachope_bdd5;
 CREATE DATABASE prestachope_bdd5;
 USE prestachope_bdd5;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -52,9 +53,24 @@ INSERT INTO `categorie` (`idCategorie`, `categorieProduit`) VALUES
 
 CREATE TABLE `commande` (
   `idCommande` int(11) NOT NULL,
-  `facture` int(11) NOT NULL,
+  `facture` varchar(11) NOT NULL,
   `idClient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`idCommande`, `facture`, `idClient`) VALUES
+(1, '28', 1),
+(2, '28', 1),
+(3, '28', 1),
+(4, '28', 1),
+(5, '28', 1),
+(6, '28', 1),
+(7, '28', 1),
+(8, '28', 1),
+(9, '28', 1);
 
 -- --------------------------------------------------------
 
@@ -67,6 +83,14 @@ CREATE TABLE `commande_produit` (
   `idProduit` int(11) NOT NULL,
   `quantite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `commande_produit`
+--
+
+INSERT INTO `commande_produit` (`idCommande`, `idProduit`, `quantite`) VALUES
+(1, 10, 7),
+(9, 10, 7);
 
 -- --------------------------------------------------------
 
@@ -143,7 +167,7 @@ CREATE TABLE `utilisateurs` (
   `adresse` varchar(40) NOT NULL,
   `mail` varchar(40) NOT NULL,
   `motdepasse` varchar(40) NOT NULL,
-  `cagnote` int(11) NOT NULL,
+  `cagnote` int(11) NOT NULL DEFAULT 10000,
   `admin` int(11) NOT NULL,
   `ban` int(11) NOT NULL,
   `timeBan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -154,7 +178,7 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`idClient`, `nom`, `prenom`, `adresse`, `mail`, `motdepasse`, `cagnote`, `admin`, `ban`, `timeBan`) VALUES
-(1, 'Burdin', 'Lucas', 'Non', 'lucas.burdin63@gmail.com', '1234', 0, 0, 0, '2021-05-05 06:53:28');
+(1, 'Burdin', 'Lucas', 'Non', 'lucas.burdin63@gmail.com', '1234', 10000, 0, 0, '2021-05-11 15:13:08');
 
 --
 -- Index pour les tables déchargées
@@ -170,7 +194,8 @@ ALTER TABLE `categorie`
 -- Index pour la table `commande`
 --
 ALTER TABLE `commande`
-  ADD PRIMARY KEY (`idCommande`);
+  ADD PRIMARY KEY (`idCommande`),
+  ADD KEY `idClient` (`idClient`);
 
 --
 -- Index pour la table `commande_produit`
@@ -182,25 +207,93 @@ ALTER TABLE `commande_produit`
 -- Index pour la table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`idContact`);
+  ADD PRIMARY KEY (`idContact`),
+  ADD KEY `idClient` (`idClient`);
 
 --
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
-  ADD PRIMARY KEY (`idProduit`);
+  ADD PRIMARY KEY (`idProduit`),
+  ADD KEY `idSousCategorie` (`idSousCategorie`);
 
 --
 -- Index pour la table `souscategorie`
 --
 ALTER TABLE `souscategorie`
-  ADD PRIMARY KEY (`idSousCategorie`);
+  ADD PRIMARY KEY (`idSousCategorie`),
+  ADD KEY `idCategorie` (`idCategorie`);
 
 --
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`idClient`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `idContact` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produit`
+--
+ALTER TABLE `produit`
+  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `souscategorie`
+--
+ALTER TABLE `souscategorie`
+  MODIFY `idSousCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+ALTER TABLE `commande`
+  ADD CONSTRAINT `Commande_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
+
+--
+-- Contraintes pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD CONSTRAINT `Contact_Utilisateurs_FK` FOREIGN KEY (`idClient`) REFERENCES `utilisateurs` (`idClient`);
+
+--
+-- Contraintes pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD CONSTRAINT `Produit_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Produit_SousCategorie_FK` FOREIGN KEY (`idSousCategorie`) REFERENCES `souscategorie` (`idSousCategorie`) ON DELETE CASCADE;
+
+ALTER TABLE `Commande_Produit`
+  ADD CONSTRAINT `Contenir_Commande_FK` FOREIGN KEY (`idCommande`) REFERENCES `Commande`(`idCommande`)ON DELETE CASCADE,
+  ADD CONSTRAINT `Contenir_Produit0_FK` FOREIGN KEY (`idProduit`) REFERENCES `Produit`(`idProduit`)ON DELETE CASCADE;
+--
+-- Contraintes pour la table `souscategorie`
+--
+ALTER TABLE `souscategorie`
+  ADD CONSTRAINT `SousCategorie_Categorie_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
