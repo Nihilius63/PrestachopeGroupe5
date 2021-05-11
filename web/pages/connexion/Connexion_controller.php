@@ -12,17 +12,18 @@ class Connexion_controller {
             $utilisateur=new utilisateursDTO();
             $utilisateur->setMail($email);
             $utilisateur->setMotdepasse($motdepasse);
-            $connexion=utilisateursDAO::connexUtilisateur($utilisateur);
-            foreach ($connexion as $co)
-            {
-                if($co['mail']==$email && $co['motdepasse']==$motdepasse)
-                {
-                    $_SESSION['id']=$co['idClient'];
-                    $_SESSION['nom']=$co['nom'];
-                    $_SESSION['prenom']=$co['prenom'];
-                }
-            }
-            $_SESSION['panier']=array();
+            $result=utilisateursDAO::connexUtilisateur($utilisateur);
+            return $result;
+        }
+        public function createUtilisateur($email,$nom,$prenom,$motdepasse,$adresse) {
+            $utilisateur=new utilisateursDTO();
+            $utilisateur->setMail($email);
+            $utilisateur->setMotdepasse($motdepasse);
+            $utilisateur->setAdresse($adresse);
+            $utilisateur->setNom($nom);
+            $utilisateur->setPrenom($prenom);
+            $result=utilisateursDAO::createUtilisateur($utilisateur);
+            return $result;
         }
         /*public function redirectUser(){
             header ('location: index.php?page=presentation');

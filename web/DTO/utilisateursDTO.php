@@ -1,16 +1,32 @@
 <?php
 	class utilisateursDTO
 	{
+                private $idClient;
 		private $nom;
 		private $prenom;
                 private $adresse;
                 private $mail;
                 private $motdepasse;
+                private $cagnote;
                 private $admin;
                 private $ban;
                 private $timeBan;
                 public function getNom() {
                     return $this->nom;
+                }
+                public function getIdClient() {
+                    return $this->idClient;
+                }
+
+                public function setIdClient($idClient): void {
+                    $this->idClient = $idClient;
+                }
+                public function getCagnote() {
+                    return $this->cagnote;
+                }
+
+                public function setCagnote($cagnote): void {
+                    $this->cagnote = $cagnote;
                 }
 
                 public function getPrenom() {

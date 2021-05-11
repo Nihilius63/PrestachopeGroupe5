@@ -221,6 +221,12 @@ class SuperController
                     include_once"pages/commande/commandeview.php";
                     break;
                 }
+                case "deco":
+                    include_once("pages/header.php");
+                    include_once 'pages/Deconnexion/DeconnexionControlleur.php';
+                    $instanceController = new DeconnexionControlleur();
+                    $instanceController->includeView();
+                    break;
             }
         }
 }

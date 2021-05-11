@@ -51,6 +51,7 @@
                     if (isset($_SESSION['nom'],$_SESSION['prenom']))
                     {
                         echo '<a href="index.php?page=panier"><i class="fas fa-shopping-cart"></i></a>';
+                        echo '<a href="index.php?page=deco">Deconnexion</a>';  
                     }
                     else {
                         ?>
