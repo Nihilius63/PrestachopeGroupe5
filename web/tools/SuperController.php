@@ -185,11 +185,7 @@ class SuperController
                     include_once 'pages/connexion/Connexion_controller.php';
                     $instanceController = new Connexion_controller();
                     $instanceController->includeview();
-                    if(isset($_POST['email'],$_POST['mdp']))
-                        {
-                            $instanceController->connectUtilisateur($_POST['email'], $_POST['mdp']);
-                        }
-                break;
+                    break;
                 }
                 case "pagerecherche":
                 {

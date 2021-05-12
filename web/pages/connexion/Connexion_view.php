@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang='fr'>
     <head>
-        
+        <link rel="stylesheet" href="assets/css/connexion.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     </head>
     <body>
         <div id="body_log">
@@ -93,11 +95,11 @@
                 </form>
             </div>
             <script type="text/javascript">
-            $('.options-02 a').click(function(){
-                $('form').animate({
-                    height: "toggle", opacity: "toggle"
-                }, "slow");
-            });
+                $('.options-02 a').click(function(){
+                    $('form').animate({
+                        height: "toggle", opacity: "toggle"
+                    }, "slow");
+                });
             </script>
         </div>
     </body>

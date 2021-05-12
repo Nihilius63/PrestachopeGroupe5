@@ -1,6 +1,22 @@
-	text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+#body_log{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #111;
 }
 
+.form{
+	z-index: 1;
+	font-family: "Poppins", sans-serif;
+	position: absolute;
+	width: 320px;
+	text-align: center;
+}
 .form i{
 	z-index: 1;
 	color: #ccc;
