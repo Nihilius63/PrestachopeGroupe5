@@ -114,7 +114,7 @@ CREATE TABLE `contact` (
 CREATE TABLE `produit` (
   `idProduit` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `prix` varchar(20) NOT NULL,
+  `prix` float(20) NOT NULL,
   `description` text NOT NULL,
   `stock` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,

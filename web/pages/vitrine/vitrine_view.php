@@ -46,7 +46,7 @@
                                   $nom=$contents->getNom();
                                 ?>
                             </div>
-                            <button class="btnpanier"> <a href="index.php?page=achat&nom='<?php echo $contents->getNom()?>">Ajouter </a></button>
+                            <button class="btnpanier"> <a href="index.php?page=achat&nom=<?php echo $contents->getNom()?>">Ajouter </a></button>
                         </div>
                           <?php
                         }

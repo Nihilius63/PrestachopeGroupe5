@@ -16,7 +16,7 @@
                     $result=$instanceController->connectUtilisateur($_POST['email'],$_POST['password']);
                     if (isset($result)) 
                     {
-                        $_SESSION['idCLient']=$result->getIdClient();
+                        $_SESSION['id']=$result->getIdClient();
                         $_SESSION['nom']=$result->getNom();
                         $_SESSION['prenom']=$result->getPrenom();
                         $_SESSION['adresse']=$result->getAdresse();

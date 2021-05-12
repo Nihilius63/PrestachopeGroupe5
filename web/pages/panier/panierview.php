@@ -18,7 +18,7 @@
                 $produit=produitDAO::selectproduitbynom($contents);
                 echo $produit->getPrix().'<br>';
                 echo "Quantité: ".$values.'<br>';
-                $total=$produit->getPrix()*$values;
+                $total=floatval($produit->getPrix())*$values;
                 echo "Total:".$total.'<br>';
                 $supertotal=$total+$supertotal;
             }

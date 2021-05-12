@@ -223,6 +223,13 @@ class SuperController
                     $instanceController = new DeconnexionControlleur();
                     $instanceController->includeView();
                     break;
+                case "contact":
+                    include_once("pages/header.php");
+                    include_once 'pages/contact/contactcontrolleur.php';
+                    $instanceController = new contactcontrolleur();
+                    $instanceController->includeView();
+                    break;
+                    
             }
         }
 }

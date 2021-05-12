@@ -1,6 +1,7 @@
 <?php
 	class contactDTO
 	{
+                private $id;
 		private $message;
 		private $statuts;
 		private $idClient;
@@ -12,8 +13,15 @@
                 public function getStatuts() {
                     return $this->statuts;
                 }
+                public function getId() {
+                    return $this->id;
+                }
 
-                public function getIdClient() {
+                public function setId($id): void {
+                    $this->id = $id;
+                }
+
+                                public function getIdClient() {
                     return $this->idClient;
                 }
 
