@@ -46,17 +46,25 @@
                 ?>
                 </div>
                 <div class="btndroite">
+                    <a href="index.php?page=presentation"  value="presentation" ><i class="fas fa-home"></i></a>
                     <?php
                     if (isset($_SESSION['nom'],$_SESSION['prenom']))
                     {
                         echo '<a href="index.php?page=panier"><i class="fas fa-shopping-cart"></i></a>';
-                        echo '<a href="index.php?page=deco">Deconnexion</a>';  
+                        $tailletab= count($_SESSION['panier']);
+                        if ($tailletab>0)
+                        {
+                          ?>
+                        <div class="nb-panier">
+                            <p><?php echo $tailletab ?> </p>
+                        </div>
+                        <?php  
+                        }
+                        echo '<a href="index.php?page=deco"><i class="fas fa-power-off"></i></a>';  
                     }
                     else {
                         ?>
-                            <a href="index.php?page=presentation"  value="presentation" ><i class="fas fa-home"></i></a>
                             <a href="index.php?page=connexion"  value="connexion" ><i class="far fa-user"></i></a>
-                            <a href="index.php?page=inscription"  value="inscription" ><i class="far fa-user"></i></a>
                         <?php
                     }
                     ?>

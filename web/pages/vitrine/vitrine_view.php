@@ -37,11 +37,12 @@
                         ?>
                         <div class="descProduit">
                             <div class="produit">
-                                <img class="imgProduit" src= "<?php echo $contents->getImage() ?>"><br>
+                                <a href="index.php?produit=<?php echo $contents->getId()?>&page=detail"><img class="imgProduit" src= "<?php echo $contents->getImage() ?>"></a><br>
                             </div>
                             <div class="texte">
                               <h3> <?php echo $contents->getNom() ?> </h3>
                               <p> <?php echo $contents->getDescription() ?></p>
+                              <p> <?php echo $contents->getPrix() ?> €</p>
                                 <?php
                                   $nom=$contents->getNom();
                                 ?>

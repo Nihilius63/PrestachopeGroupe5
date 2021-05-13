@@ -44,6 +44,7 @@ class produitDAO
     	foreach ($d as $db) 
     	{
             $produit= new produitDTO();
+            $produit->setId($db['idProduit']);
             $produit->setNom($db['nom']);
             $produit->setPrix($db['prix']);
             $produit->setDescription($db['description']);
