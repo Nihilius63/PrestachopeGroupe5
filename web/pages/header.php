@@ -31,7 +31,7 @@
                     <ul>
                         <li class="ligne">
                             <h2><a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a></h2>';
-                            if (isset($_SESSION))
+                            if (isset($_SESSION['admin']))
                             {
                                 if ($_SESSION['admin']==1)
                                 {
