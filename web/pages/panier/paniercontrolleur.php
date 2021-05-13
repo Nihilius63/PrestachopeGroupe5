@@ -24,7 +24,6 @@ class paniercontrolleur
             unset($_SESSION['panier']);
             $_SESSION['panier']=array();
             header('Location: index.php?page=vitrine');
-            die();
         }
     }
 }

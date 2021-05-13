@@ -1,14 +1,16 @@
+<?php
+include_once 'paniercontrolleur.php';
+$instanceController = new paniercontrolleur();
+$content=$instanceController->testclear();
+?>
 <html>
     <head>
         <title>title</title>
     </head>
     <body>
         <?php
-        include_once 'paniercontrolleur.php';
         include_once 'DAO/produitDAO.php';
         include_once 'DTO/produitDTO.php';
-            $instanceController = new paniercontrolleur();
-            $content=$instanceController->testclear();
             $content=$instanceController->content();
             $supertotal=0;
             foreach ($content as $contents=>$values)
