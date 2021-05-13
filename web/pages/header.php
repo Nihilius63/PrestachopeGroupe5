@@ -30,24 +30,24 @@
                 <div class="cat">
                     <ul>
                         <li class="ligne">
-                            <h2><a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a></h2>';
+                            <h2><a href="index.php?categorie='.$all->getIdCategorie().'&page=pagerecherche" value='.$all->getIdCategorie().'>'.$all->getCategorieProduit().'</a>';
                             if (isset($_SESSION['admin']))
                             {
                                 if ($_SESSION['admin']==1)
                                 {
-                                    echo '<h2><a href="index.php?categorie='.$all->getIdCategorie().'&page=modif&nom='.$all->getCategorieProduit().'" value='.$all->getIdCategorie().'><i class="fas fa-pen"></i></a></h2>';
+                                    echo '<a href="index.php?categorie='.$all->getIdCategorie().'&page=modif&nom='.$all->getCategorieProduit().'" value='.$all->getIdCategorie().'><i class="fas fa-pen"></i></a></h2>';
                                 }
                             }
                            echo '<ul class="sub-menu">';
                                 foreach ($souscate as $souscat) 
                                 {
                                     echo'
-                                    <li><a href="index.php?souscate='.$souscat->getIdSousCategorie().'&page=pagerecherche"  value='.$souscat->getIdSousCategorie().'>'.$souscat->getNomSousCategorie().'</a></li>';
+                                    <li><a href="index.php?souscate='.$souscat->getIdSousCategorie().'&page=pagerecherche"  value='.$souscat->getIdSousCategorie().'>'.$souscat->getNomSousCategorie().'</a>';
                                     if (isset($_SESSION['admin']))
                                     {
                                         if ($_SESSION['admin']==1)
                                         {
-                                            echo '<li><a href="index.php?souscate='.$souscat->getIdSousCategorie().'&page=modif&nom='.$souscat->getNomSousCategorie().'"  value='.$souscat->getIdSousCategorie().'><i class="fas fa-pen"></i></a></li>';
+                                            echo '<a href="index.php?souscate='.$souscat->getIdSousCategorie().'&page=modif&nom='.$souscat->getNomSousCategorie().'"  value='.$souscat->getIdSousCategorie().'><i class="fas fa-pen"></i></a></li>';
                                         }
                                     }
                                 }

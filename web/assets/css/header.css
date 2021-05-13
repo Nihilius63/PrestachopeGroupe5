@@ -109,3 +109,16 @@ html{
    top:1%;
    font-size: 1.6rem;
 }
+.fa-pen{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.fas{
+    transition: 0.5s;
+}
+.fas:hover{
+    color: purple;
+}
+.fa-pen:hover{
+    color: red;
+}
