@@ -52,5 +52,11 @@ class categorieDAO
         $dbbb=$dbb->prepare('DELETE FROM prestachope_bdd5.categorie WHERE idCategorie=? ');
     	$dbbb->execute(array($categorieDTO->getIdCategorie()));
     }
+    public static function updatecategorie($categorieDTO) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('UPDATE `categorie` SET `categorieProduit`=? WHERE idCategorie=?');
+    	$dbbb->execute(array($categorieDTO->getCategorieProduit(),$categorieDTO->getIdCategorie()));
+    }
 }
 ?>

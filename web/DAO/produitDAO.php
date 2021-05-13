@@ -113,10 +113,10 @@ class produitDAO
             $produit->setDescription($db['description']);
             $produit->setStock($db['stock']);
             $produit->setIdCategorie($db['idCategorie']);
+            $produit->setIdsouscategorie($db['idSousCategorie']);
             $produit->setImage($db['image']);
-            $tab[]=$produit;
+            return $produit;
     	}
-        return $tab;
     }
         public static function selectproduitbynom($nom) 
     {
@@ -136,6 +136,13 @@ class produitDAO
             $produit->setImage($db['image']);
             return $produit;
     	}
+    }
+    public static function updateproduit($produitDTO) 
+    {
+        var_dump($produitDTO);
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('UPDATE `produit` SET `nom`=?,`prix`=?,`description`=?,`stock`=?,`idCategorie`=?,`idSousCategorie`=? WHERE idProduit=?');
+    	$dbbb->execute(array($produitDTO->getNom(),$produitDTO->getPrix(),$produitDTO->getDescription(),$produitDTO->getStock(),$produitDTO->getIdCategorie(),$produitDTO->getIdsouscategorie(),$produitDTO->getId()));
     }
 }
 ?>

@@ -229,6 +229,12 @@ class SuperController
                     $instanceController = new contactcontrolleur();
                     $instanceController->includeView();
                     break;
+                case "modif":
+                    include_once("pages/header.php");
+                    include_once 'pages/modif/modifcontrolleur.php';
+                    $instanceController = new modifcontrolleur();
+                    $instanceController->includeView();
+                    break;
                     
             }
         }

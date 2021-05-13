@@ -47,5 +47,11 @@ class souscategorieDAO
     	}
         return $tab;
     }
+        public static function updatesouscategorie($souscategorieDTO) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('UPDATE `souscategorie` SET `nomSousCategorie`=? WHERE idSousCategorie=?');
+    	$dbbb->execute(array($souscategorieDTO->getNomSousCategorie(),$souscategorieDTO->getIdSousCategorie()));
+    }
 }
 ?>

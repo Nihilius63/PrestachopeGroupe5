@@ -7,6 +7,13 @@ class achatcontroleur
     }
     public function includeinpanier($nom,$quantité)
     {
-        $_SESSION['panier'][$nom]=$quantité;
+        if (isset($_SESSION['panier'][$nom]))
+        {
+            $_SESSION['panier'][$nom]=$_SESSION['panier'][$nom]+$quantité;
+        }
+        else
+        {
+            $_SESSION['panier'][$nom]=$quantité;
+        }
     }
 }

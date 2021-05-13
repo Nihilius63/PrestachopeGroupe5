@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['admin'])
+if ($_SESSION['admin']==1)
 {
     if (isset($_POST['valid']))
     {
