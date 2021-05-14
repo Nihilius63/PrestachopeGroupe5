@@ -25,4 +25,11 @@ class PagerechercheControlleur
         $content=produitDAO::selectproduitbysouscategorie($souscategorie);
         return $content;
     }
+    
+   public function selectnamecategorie($id) 
+    {
+        include_once 'DAO/categorieDAO.php';
+        $categorie=categorieDAO::selectcategoriebyid($id);
+        return $categorie;
+    } 
 }

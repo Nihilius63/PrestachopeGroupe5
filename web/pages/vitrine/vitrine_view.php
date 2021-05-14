@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="assets/css/vitrine.css" media="all"/>
-    <script src="assets/js/rafraichir.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
@@ -26,6 +25,7 @@
                     <div class="produitbycat">
                         <div class="Nom">
                           <h1> Nos <?php echo $cate->getCategorieProduit();?></h1> <br>
+                          <a href="index.php?categorie=<?php echo $cate->getIdCategorie();?>&page=pagerecherche"> Plus de <?php echo $cate->getCategorieProduit();?> <i class="fas fa-arrow-right"></i> </a>
                         </div>
                   <?php
                }
@@ -44,9 +44,6 @@
                               <h3> <?php echo $contents->getNom() ?> </h3>
                               <p> <?php echo $contents->getDescription() ?></p>
                               <p> <?php echo $contents->getPrix() ?> €</p>
-                                <?php
-                                  $nom=$contents->getNom();
-                                ?>
                             </div>
                             <button class="btnpanier"> <a href="index.php?page=achat&nom=<?php echo $contents->getNom()?>">Ajouter </a></button>
                         </div>
