@@ -3,7 +3,7 @@ class PagerechercheControlleur
 {
         public function includeview() 
     {
-        include_once 'delete_produitview.php';
+        include_once 'pagerechercheview.php';
     }
         public function selectbycategorie($id) 
     {

@@ -45,7 +45,17 @@
                               <p> <?php echo $contents->getDescription() ?></p>
                               <p> <?php echo $contents->getPrix() ?> €</p>
                             </div>
-                            <button class="btnpanier"> <a href="index.php?page=achat&nom=<?php echo $contents->getNom()?>">Ajouter </a></button>
+                            <?php
+                            if ($contents->getStock()!=0)
+                            { ?>
+                                <button class="btnpanier"> <a href="index.php?page=achat&nom=<?php echo $contents->getNom()?>">Ajouter </a></button>
+                            <?php
+                            }
+                            else 
+                            {?>
+                               <button class="btnpanier"> <a href="">Hors stock</a></button>
+                               <?php
+                            }?>
                         </div>
                           <?php
                         }

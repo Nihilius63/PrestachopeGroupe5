@@ -1,3 +1,11 @@
+<?php
+if (isset($_POST['produit']))
+{
+    include_once 'delete_produitcontrolleur.php';
+    $instanceController= new delete_produitcontrolleur();
+    $instanceController->deleteproduit($_POST['produit']);
+}
+?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>

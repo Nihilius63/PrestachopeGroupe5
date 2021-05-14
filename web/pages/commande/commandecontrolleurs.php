@@ -39,15 +39,16 @@ class commandecontrolleurs
         $commande->setFacture($supertotal);
         $commande->setIdClient($_SESSION['id']);
         $id = commandeDAO::insertcommande($commande);
-        echo $id;
         foreach ($content as $contents=>$values)
         {
             $produit=produitDAO::selectproduitbynom($contents);
-            $produits= new commande_produitDTO();
-            $produits->setIdCommande($id);
-            $produits->setIdProduit($produit->getId());
-            $produits->setQuantite($values);
-            commande_produitDAO::insertcommande($produits);
+            $produitcomande= new commande_produitDTO();
+            $produitcomande->setIdCommande($id);
+            $produitcomande->setIdProduit($produit->getId());
+            $produitcomande->setQuantite($values);
+            commande_produitDAO::insertcommande($produitcomande);
+            produitDAO::updatestock($produitcomande);
+            unset($_SESSION['panier'][$contents]);
         }
     }
 }

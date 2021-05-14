@@ -1,3 +1,10 @@
+<?php
+if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$_POST['souscategorie']))
+{
+    $instanceController = new Creation_produitcontrolleur();
+    $instanceController->insertproduct();
+}
+?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>

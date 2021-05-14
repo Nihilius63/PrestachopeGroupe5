@@ -1,3 +1,11 @@
+<?php
+if (isset($_POST['Nom'],$_POST['categorie']))
+{
+    include_once 'Creation_souscategoriecontrolleur.php';
+    $instanceController=new Creation_souscategoriecontrolleur();
+    $instanceController->newsouscategorie($_POST['Nom'],$_POST['categorie']);
+}
+?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>

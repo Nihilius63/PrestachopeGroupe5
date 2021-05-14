@@ -1,3 +1,11 @@
+<?php
+if (isset($_POST['categorie']))
+{
+    include_once 'delete_categoriecontrolleur.php';
+    $instanceController= new delete_categoriecontrolleur();
+    $instanceController->deletecategorie($_POST['categorie']);
+}
+?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>

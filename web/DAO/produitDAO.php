@@ -139,10 +139,16 @@ class produitDAO
     }
     public static function updateproduit($produitDTO) 
     {
-        var_dump($produitDTO);
         $dbb = databaselinker::getconnexion();
         $dbbb=$dbb->prepare('UPDATE `produit` SET `nom`=?,`prix`=?,`description`=?,`stock`=?,`idCategorie`=?,`idSousCategorie`=? WHERE idProduit=?');
     	$dbbb->execute(array($produitDTO->getNom(),$produitDTO->getPrix(),$produitDTO->getDescription(),$produitDTO->getStock(),$produitDTO->getIdCategorie(),$produitDTO->getIdsouscategorie(),$produitDTO->getId()));
     }
+        public static function updatestock($produitDTO) 
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('UPDATE `produit` SET stock=stock-? where idProduit=?');
+    	$dbbb->execute(array($produitDTO->getQuantite(),$produitDTO->getIdProduit()));
+    }
+    
 }
 ?>

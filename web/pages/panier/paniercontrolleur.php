@@ -1,7 +1,7 @@
 <?php
 class paniercontrolleur 
 {
-    public function incluview() 
+    public function includeview() 
     {
         include_once "panierview.php";
     }

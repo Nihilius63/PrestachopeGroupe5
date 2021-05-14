@@ -12,10 +12,17 @@
         echo $content->getIdCategorie().'<br>';
         echo $content->getImage().'<br>';
         $nom=$content->getNom();
-        echo '<form action="index.php?page=achat&nom='.$nom.'" method="POST">
-            <input type="number" name="quantite" value="1">
-            <input type="submit" value="Acheter">
-            </form> ';
+        if ($content->getStock()!=0)
+        {
+            echo '<form action="index.php?page=achat&nom='.$nom.'" method="POST">
+                <input type="number" name="quantite" value="1">
+                <input type="submit" value="Acheter">
+                </form> ';
+        }
+        else
+        {
+            echo 'Ce produit et malheursement en rupture de stock';
+        }
     }
     else 
     {
