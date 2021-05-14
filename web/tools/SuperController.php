@@ -129,7 +129,6 @@ class SuperController
                     break;
                 }
                 case "deco":
-                    include_once("pages/header.php");
                     include_once 'pages/Deconnexion/DeconnexionControlleur.php';
                     $instanceController = new DeconnexionControlleur();
                     $instanceController->includeView();
@@ -146,7 +145,12 @@ class SuperController
                     $instanceController = new modifcontrolleur();
                     $instanceController->includeView();
                     break;
-                    
+                case "gestion":
+                    include_once("pages/header.php");
+                    include_once 'pages/gestionutilisateurs/gestionutilisateurscontrolleur.php';
+                    $instanceController = new gestionutilisateurscontrolleur();
+                    $instanceController->includeView();
+                    break;
             }
         }
 }

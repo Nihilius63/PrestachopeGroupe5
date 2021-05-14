@@ -25,4 +25,23 @@ class contactDAO
     	}
         return $tab;
     }
+        public static function modiflu($id) 
+    {
+        include_once 'DTO/utilisateursDTO.php';
+        $bdd= databaselinker::getconnexion();
+        $resultat=$bdd->prepare('UPDATE `contact` SET`statuts`=1 WHERE idContact=?');
+        $resultat->execute(array($id));
+    }
+        public static function selecnbtmsg()
+    {
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT COUNT(*) FROM prestachope_bdd5.contact WHERE statuts=0');
+    	$dbbb->execute();
+        $d = $dbbb->fetchAll();
+    	foreach ($d as $db) 
+    	{
+            return $db['COUNT(*)'];
+    	}
+    }
 }
+?>

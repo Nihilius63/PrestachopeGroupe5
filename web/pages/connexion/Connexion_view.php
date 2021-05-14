@@ -22,8 +22,6 @@
                         $_SESSION['adresse']=$result->getAdresse();
                         $_SESSION['cagnotte']=$result->getCagnote();
                         $_SESSION['admin']=$result->getAdmin();
-                        $_SESSION['ban']=$result->getBan();
-                        $_SESSION['timeban']=$result->getTimeBan();
                         $_SESSION['panier']=array();
                         header('Location: index.php?page=vitrine');
                         

@@ -30,11 +30,8 @@ class utilisateursDAO
             $uti->setNom($results['nom']);
             $uti->setPrenom($results['prenom']);
             $uti->setAdresse($results['adresse']);
-            $uti->setMail($results['motdepasse']);
             $uti->setCagnote($results['cagnote']);
             $uti->setAdmin($results['admin']);
-            $uti->setBan($results['ban']);
-            $uti->setTimeBan($results['timeBan']);
             return $uti;
         }
     }
@@ -60,11 +57,32 @@ class utilisateursDAO
             return $uti;
         }
     }
-    public static function modiflu($id) 
+        public static function selectalluser() 
     {
         include_once 'DTO/utilisateursDTO.php';
         $bdd= databaselinker::getconnexion();
-        $resultat=$bdd->prepare('UPDATE `contact` SET`statuts`=1 WHERE idContact=?');
-        $resultat->execute(array($id));
+        $resultat=$bdd->prepare('SELECT * FROM prestachope_bdd5.utilisateurs WHERE admin=0 ');
+        $resultat->execute();
+        $result=$resultat->fetchAll();
+        $tab=[];
+        foreach ($result as $results) 
+        {
+            $uti= new utilisateursDTO();
+            $uti->setIdClient($results['idClient']);
+            $uti->setNom($results['nom']);
+            $uti->setPrenom($results['prenom']);
+            $uti->setAdresse($results['adresse']);
+            $uti->setMail($results['mail']);
+            $uti->setCagnote($results['cagnote']);
+            $uti->setAdmin($results['admin']);
+            $tab[]=$uti;
+        }
+        return $tab;
+    }
+    public static function deleteuser($nom) 
+    {
+        $bdd= databaselinker::getconnexion();
+        $resultat=$bdd->prepare('DELETE FROM `utilisateurs` WHERE nom=?');
+        $resultat->execute(array($nom));
     }
 }

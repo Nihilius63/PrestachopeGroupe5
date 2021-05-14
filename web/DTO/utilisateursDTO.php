@@ -9,8 +9,6 @@
                 private $motdepasse;
                 private $cagnote;
                 private $admin;
-                private $ban;
-                private $timeBan;
                 public function getNom() {
                     return $this->nom;
                 }
@@ -48,15 +46,6 @@
                 public function getAdmin() {
                     return $this->admin;
                 }
-
-                public function getBan() {
-                    return $this->ban;
-                }
-
-                public function getTimeBan() {
-                    return $this->timeBan;
-                }
-
                 public function setNom($nom): void {
                     $this->nom = $nom;
                 }
@@ -81,12 +70,5 @@
                     $this->admin = $admin;
                 }
 
-                public function setBan($ban): void {
-                    $this->ban = $ban;
-                }
-
-                public function setTimeBan($timeBan): void {
-                    $this->timeBan = $timeBan;
-                }
         }
 ?>

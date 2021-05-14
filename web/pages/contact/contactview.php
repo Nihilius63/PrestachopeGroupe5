@@ -5,8 +5,8 @@ if ($_SESSION['admin']==1)
     {
         foreach ($_POST['valid'] as $valeur) 
         {
-            include_once 'DAO/utilisateursDAO.php';
-            $infoclient= utilisateursDAO::modiflu($valeur);
+            include_once 'DAO/contactDAO.php';
+            $infoclient= contactDAO::modiflu($valeur);
         }
     }
     include_once 'contactcontrolleur.php';
