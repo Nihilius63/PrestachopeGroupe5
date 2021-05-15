@@ -151,12 +151,12 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`idProduit`, `nom`, `prix`, `description`, `stock`, `image`, `idCategorie`, `idSousCategorie`) VALUES
 (8, 'Futs Desperados 50l', 1.55, 'Slt a tous c moi la bierre', 788, 'assets/img/desperados-red.png', 2, 4),
-(9, 'Affligem Blonde', 3.99, 'Biere Blonde | 6,8%', 11, 'assets/img/affligem_blond.png', 1, 3),
-(10, 'Cuvee Des Trolls', 3.99, 'Bière Blonde | 7.0% | 25cl', 11, 'assets/img/cuvee-des-trolls.png', 1, 3),
+(9, 'Affligem Blonde', 3.99, 'Biere Blonde | 6,8%', 11, 'assets/img/affligem_blond.png', 1, 4),
+(10, 'Cuvee Des Trolls', 3.99, 'Bière Blonde | 7.0% | 25cl', 11, 'assets/img/cuvee-des-trolls.png', 1, 4),
 (11, 'Het Nest Pokerface', 4.99, 'Bière Blanche | 5,5 % | 33cl', 119, 'assets/img/het-nest-pokerface.png', 1, 5),
 (12, 'Judas', 3, 'Bière Blonde | 8,6% | 33cl', 10, 'assets/img/judas.png', 1, 4),
 (13, 'Delirium Tremens', '4,99', 'Bière Blonde | 8,5% | 33 cl', 30, 'assets/img/delirium-tremens.png', 1, 4),
-(14, 'Paljas Blond', '3.99', 'Bière Blanche | 6,0 % | 33cl', 50, 'assets/img/paljas-blond.png', 1, 4),
+(14, 'Paljas Blond', '3.99', 'Bière Blanche | 6,0 % | 33cl', 50, 'assets/img/paljas-blond.png', 1, 5),
 (15, 'Affligem Blonde (5L)', '20,99', 'Bière Blonde | 6,8% | 5 Litres', 22, 'assets/img/affligem-blond-5l.png', 2, 3),
 (16, 'Heineken (5L)', '18,99', 'Lager | 5,0% | 5 Litres', 45, 'assets/img/heineken-5l.png', 2, 3),
 (17, 'Desperados Red (5L)', '18,99', 'Bière Fruitée | 5,9% | 5 Litres', 60, 'assets/img/desperados-red.png', 2, 3),

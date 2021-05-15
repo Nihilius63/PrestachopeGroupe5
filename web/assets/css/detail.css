@@ -19,7 +19,6 @@ body{
 .boxProduit{
     width: 100%;
     display: flex;
-     border: solid 1px black;
 }
 .imgProduit{
     max-height: 480px;
@@ -52,6 +51,7 @@ body{
      font-size: 2.6rem;
     font-family: 'Red Hat Display', sans-serif;
     margin-left: 20px;
+    margin-bottom: 10px;
 }
 .text input{
    border: none;
@@ -78,4 +78,63 @@ body{
 }
 .text button:hover{
   background: purple;  
+}
+.text form{
+    margin-left: 20px;
+}
+.text .stock{
+    color: red;
+    font-size: 2.0rem;
+}
+.text a{
+    text-decoration: none;
+    color: purple;
+}
+.text a:hover{
+    text-decoration: underline;
+}
+.modifproduit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modprod{
+    border: solid 1px purple;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.modprod p {
+    font-size: 2.6rem;
+    font-family: 'Red Hat Display', sans-serif;
+    margin-bottom: 10px;
+}
+.modprod h1{
+    font-size: 6.8rem;
+    font-family: 'Lobster', cursive;
+}
+.modprod h1 span{
+    color: purple;
+}
+.modprod input, .modprod select{
+   border: none;
+   outline: none;
+   padding: 5px;
+   border-radius: 5px;
+   margin: 0 5px !important;
+   box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.btnvalider{
+    height: 30px;
+    width: 100px;
+    background: purple;
+    color: white;
+    transition: 0.5s;
+}
+.btnvalider:hover{
+    opacity: 0.6;
 }

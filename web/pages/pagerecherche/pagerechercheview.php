@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="assets/css/pagerecherche.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.nice-number.css" media="all"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+    <script src="assets/js/jquery.nice-number.js"> </script>
+    <script type="text/javascript">
+        $(function(){
+            $('input[type="number"]').niceNumber();
+        });
+    </script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
@@ -53,8 +61,27 @@
                         <h3> <?php echo $content->getNom() ?> </h3>
                         <p> <?php echo $content->getDescription() ?></p>
                         <p> <?php echo $content->getPrix() ?> €</p>
+                        <?php $nom=$content->getNom(); ?>
+                        <?php
+                        if ($content->getStock()!=0 && isset($_SESSION['admin']))
+                            {
+                            ?> 
+                            <form action="index.php?page=achat&nom=<?php echo $nom; ?>" method="POST">
+                                <input type="number" name="quantite" value="1">
+                                <input class="btnaj"type="submit" value="Ajouter">
+                                </form>
+                            <?php
+                            }
+                            else if ($content->getStock()==0)
+                            {
+                                ?> <p class="stock">Ce produit est malheursement en rupture de stock </p> <?php
+                            }
+                            else
+                            {
+                                ?> <p class="stock"> Veuillez vous <a href="index.php?page=connexion"> connecter</a> pour commander </p> <?php
+                            }
+                            ?>
                     </div>
-                    <button class="btnpanier"> <a href="index.php?page=achat&nom=<?php echo $content->getNom()?>">Ajouter </a></button>
                 </div>
                 <?php
             }

@@ -41,7 +41,7 @@
                         $nom=$content->getNom();
                         if ($content->getStock()!=0 && isset($_SESSION['admin']))
                         {
-                            ?> <form action="index.php?page=achat&nom=<?php $nom; ?>" method="POST">
+                            ?> <form action="index.php?page=achat&nom=<?php echo $nom; ?>" method="POST">
                                 <input type="number" name="quantite" value="1">
                                 <input type="submit" value="Ajouter">
                                 </form>
@@ -49,11 +49,11 @@
                         }
                         else if ($content->getStock()==0)
                         {
-                            echo 'Ce produit et malheursement en rupture de stock';
+                            ?> <p class="stock">Ce produit est malheursement en rupture de stock </p> <?php
                         }
                         else
                         {
-                            echo 'Veuiller vous connecter pour commander';
+                            ?> <p class="stock"> Veuillez vous <a href="index.php?page=connexion"> connecter</a> pour commander </p> <?php
                         }
                         ?>
                     </div>
@@ -81,32 +81,42 @@
                 include_once 'DAO/souscategorieDAO.php';
                 include_once 'DTO/categorieDTO.php';
                 include_once 'DTO/souscategorieDTO.php';
-                echo '<form action="" method="POST">
-                <input type="text" name="nom" value="'.$content->getNom().'"required>
-                <input type="text" name="prix" value="'.$content->getPrix().'"required>
-                <input type="text" name="description" value="'.$content->getDescription().'"required>
-                <input type="text" name="stock" value="'.$content->getStock().'"required>
-                <label for="categorie" required>Choisissez une categorie :</label>
-                <select name="categorie">
-                <option value="'.$content->getIdCategorie().'">--Choisissez une categorie--</option>';
-                $categories=categorieDAO::selectcategorie();
-                foreach ($categories as $categorie)
-                    {
-                        echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
-                    }
-                echo '
-                </select><br>
-                <label for="souscategorie" required>Choisissez une souscategorie :</label>
-                <select name="souscategorie">
-                <option value="'.$content->getIdsouscategorie().'">--Choisissez une souscategorie--</option>';
-                     $categories=souscategorieDAO::selectsouscategories();
-                     foreach ($categories as $categorie)
-                     {
-                        echo '<option value='.$categorie->getIdSousCategorie().'>'.$categorie->getNomSousCategorie().'</option>';
-                     }
-                echo'
-                <input type="submit" value="Valider">
-                </form> ';
+                ?> 
+                <div class="modifproduit">
+                    <div class="modprod">
+                        <h1> <span>M</span>odification <span>P</span>roduit </h1>
+                        <form action="" method="POST">
+                        <p> Nom du produit : <input type="text" name="nom" value=" <?php echo $content->getNom() ;?>"required></p>
+                        <p> Prix du produit : <input type="text" name="prix" value="<?php echo  $content->getPrix() ;?>"required></p>
+                        <p> Description du produit : <input type="text" name="description" value="<?php echo $content->getDescription() ;?>"required></p>
+                        <p> Stock disponible : <input type="text" name="stock" value="<?php echo $content->getStock() ;?>"required></p>
+                        <p><label for="categorie" required>Choisissez une categorie :</label>
+                        <select name="categorie">
+                        <option value=" <?php echo$content->getIdCategorie() ;?>">--Choisissez une categorie--</option></p>
+                        <?php 
+                        $categories=categorieDAO::selectcategorie();
+                        foreach ($categories as $categorie)
+                            {
+                                echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
+                            }
+                        ?>
+                        </select><br>
+                        <p> <label for="souscategorie" required>Choisissez une souscategorie :</label>
+                        <select name="souscategorie">
+                        <option value=" <?php echo $content->getIdsouscategorie() ;?>">--Choisissez une souscategorie--</option></p>
+                            <?php
+                             $categories=souscategorieDAO::selectsouscategories();
+                             foreach ($categories as $categorie)
+                             {
+                                 echo '<option value='.$categorie->getIdSousCategorie().'>'.$categorie->getNomSousCategorie().'</option>';
+                             }
+                        ?>
+                        </select><br>
+                        <input class="btnvalider" type="submit" value="Valider">
+                        </form> 
+                    </div>
+                </div>
+            <?php
             }
             ?>
         </div>
