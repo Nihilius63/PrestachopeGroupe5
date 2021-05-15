@@ -23,7 +23,7 @@
             include_once "detailControlleur.php";
             $instanceController = new detailControlleur();
             $content=$instanceController->IncludeProduit($_GET['produit']);
-            if($_SESSION['admin']!=1)
+            if(!isset($_SESSION['admin']) || $_SESSION['admin']!=1)
             {
                 ?>
                 <div class="boxProduit">
@@ -39,7 +39,7 @@
                          <p> Stock disponible : <?php echo $content->getStock() ?> </p>
                          <?php 
                         $nom=$content->getNom();
-                        if ($content->getStock()!=0)
+                        if ($content->getStock()!=0 && isset($_SESSION['admin']))
                         {
                             ?> <form action="index.php?page=achat&nom=<?php $nom; ?>" method="POST">
                                 <input type="number" name="quantite" value="1">
@@ -47,9 +47,13 @@
                                 </form>
                             <?php
                         }
-                        else
+                        else if ($content->getStock()==0)
                         {
                             echo 'Ce produit et malheursement en rupture de stock';
+                        }
+                        else
+                        {
+                            echo 'Veuiller vous connecter pour commander';
                         }
                         ?>
                     </div>
