@@ -32,4 +32,10 @@ class PagerechercheControlleur
         $categorie=categorieDAO::selectcategoriebyid($id);
         return $categorie;
     } 
+    public function selectnamesouscategorie($id) 
+    {
+        include_once 'DAO/souscategorieDAO.php';
+        $souscategorie= souscategorieDAO::selectsouscategoriebyid($id);
+        return $souscategorie;
+    }
 }

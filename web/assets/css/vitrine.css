@@ -103,3 +103,9 @@ body{
 .Nom a:hover{
     text-decoration: underline;
 }
+.afficher{
+    display: block;
+}
+.cacher{
+    display: none;
+}

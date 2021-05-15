@@ -16,12 +16,7 @@
         if (isset($_GET['categorie']))
         {
             $contents=$instance->selectbycategorie($_GET['categorie']);
-        }
-        else if (isset ($_GET['souscate']))
-        {
-            $contents=$instance->selectbysouscategorie($_GET['souscate']);
-        }
-         $cate=$instance->selectnamecategorie($_GET['categorie']);
+            $cate=$instance->selectnamecategorie($_GET['categorie']);
          foreach ($cate as $cat)
          {
              ?>
@@ -30,6 +25,20 @@
                 </div>
              <?php
          }
+        }
+        else if (isset ($_GET['souscate']))
+        {
+            $contents=$instance->selectbysouscategorie($_GET['souscate']);
+            $souscate=$instance->selectnamesouscategorie($_GET['souscate']);
+         foreach ($souscate as $souscat)
+         {
+             ?>
+                <div class="Nom">
+                    <h1> Nos <?php echo $souscat->getNomSousCategorie(); ?> </h1>
+                </div>
+             <?php
+         }
+        }
         ?>
         <div class="produitbycate">
             <?php

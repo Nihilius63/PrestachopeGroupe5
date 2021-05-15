@@ -44,6 +44,7 @@
                               <h3> <?php echo $contents->getNom() ?> </h3>
                               <p> <?php echo $contents->getDescription() ?></p>
                               <p> <?php echo $contents->getPrix() ?> €</p>
+                                <?php $nom=$contents->getNom(); ?>
                             </div>
                             <?php
                             if ($contents->getStock()!=0)

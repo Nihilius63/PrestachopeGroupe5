@@ -53,5 +53,22 @@ class souscategorieDAO
         $dbbb=$dbb->prepare('UPDATE `souscategorie` SET `nomSousCategorie`=? WHERE idSousCategorie=?');
     	$dbbb->execute(array($souscategorieDTO->getNomSousCategorie(),$souscategorieDTO->getIdSousCategorie()));
     }
+     public static function selectsouscategoriebyid($id) 
+    {
+        include_once 'DTO/souscategorieDTO.php';
+        $dbb = databaselinker::getconnexion();
+        $dbbb=$dbb->prepare('SELECT * FROM `souscategorie` WHERE idSousCategorie=?');
+    	$dbbb->execute(array($id));
+        $d = $dbbb->fetchAll();
+        $tab=[];
+    	foreach ($d as $db) 
+    	{
+            $souscategorie= new souscategorieDTO();
+            $souscategorie->setIdSousCategorie($db['idSousCategorie']);
+            $souscategorie->setNomSousCategorie($db['nomSousCategorie']);
+            $tab[]=$souscategorie;
+    	}
+        return $tab;
+    }
 }
 ?>

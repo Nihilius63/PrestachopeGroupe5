@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.contenue{
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    z-index: 1;
+}
+.boxProduit{
+    width: 100%;
+    display: flex;
+     border: solid 1px black;
+}
+.imgProduit{
+    max-height: 480px;
+}
+.imageProduit{
+    height: 480px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.borderProduit{
+    height: 500px;
+    width: 400px;
+     border: solid 1px black;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+}
+.text{
+    flex-grow: 1;
+    margin-left: 20px;
+}
+.text h1{
+    font-size: 6.8rem;
+    font-family: 'Lobster', cursive;
+}
+.text p {
+     font-size: 2.6rem;
+    font-family: 'Red Hat Display', sans-serif;
+    margin-left: 20px;
+}
+.text input{
+   border: none;
+   outline: none;
+   padding: 5px;
+   border-radius: 5px;
+   margin: 0 5px !important;
+   box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.text input:hover,
+.text input:focus
+{
+    background: purple;
+    color: #fff;
+}
+.text button{
+    background: black;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.text button:hover{
+  background: purple;  
+}
