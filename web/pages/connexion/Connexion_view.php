@@ -55,7 +55,7 @@
                         {
                             ?> <div id="identifiant_false"> <?php
                             $instanceController->createUtilisateur($_POST['Email'],$_POST['Nom'],$_POST['Prenom'],$_POST['Password'],$_POST['Adresse']);
-                            ?> <p class="msgimp"><i class="fas fa-check"></i>Vous êtes inscrit" </p>
+                            ?> <p class="msgimp"><i class="fas fa-check"></i>Vous êtes inscrit</p>
                             </div> <?php
                         }
                         else
