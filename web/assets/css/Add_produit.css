@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.contenue{
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prod h1{
+    font-size: 6.8rem;
+    font-family: 'Lobster', cursive;
+}
+.prod h1 span{
+    color: purple;
+}
+.prod{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.prod label{
+    font-size: 2.6rem;
+    font-family: 'Red Hat Display', sans-serif;
+}
+.prod input, .prod select, .prod textarea{
+   border: none;
+   outline: none;
+   padding: 5px;
+   border-radius: 5px;
+   margin: 0 5px !important;
+   box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.prod textarea{
+    height: 100px;
+    width: 400px;
+}
+.form-example{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+}
+.titreadd{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btnadd{
+    height: 30px;
+    width: 100px;
+    background: purple;
+    color: white;
+    transition: 0.5s;
+}
+.btnadd:hover{
+    opacity: 0.6;
+}
