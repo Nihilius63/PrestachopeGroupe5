@@ -85,4 +85,10 @@ class utilisateursDAO
         $resultat=$bdd->prepare('DELETE FROM `utilisateurs` WHERE nom=?');
         $resultat->execute(array($nom));
     }
+        public static function debitercagnotte($commandeDTO) 
+    {
+        $bdd= databaselinker::getconnexion();
+        $resultat=$bdd->prepare('UPDATE `utilisateurs` SET cagnote=cagnote-? WHERE idClient=?');
+        $resultat->execute(array($commandeDTO->getFacture(),$commandeDTO->getIdClient()));
+    }
 }

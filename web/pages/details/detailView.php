@@ -114,6 +114,7 @@
                         </select><br>
                         <input class="btnvalider" type="submit" value="Valider">
                         </form> 
+                        <?php echo '<a href=index.php?page=delete_produit&produit='.$content->getId().'><i class="fas fa-trash"></i> Supprimer</a>';?>
                     </div>
                 </div>
             <?php

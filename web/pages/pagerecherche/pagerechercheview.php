@@ -63,24 +63,29 @@
                         <p> <?php echo $content->getPrix() ?> €</p>
                         <?php $nom=$content->getNom(); ?>
                         <?php
-                        if ($content->getStock()!=0 && isset($_SESSION['admin']))
-                            {
+                        if (isset($_SESSION['admin'])&&$_SESSION['admin']==1)
+                        {
+                            echo '<p class="stock">L\'adminsitrateur ne peut commander !</p><br>';
+                            echo '<a href=index.php?page=delete_produit&produit='.$content->getId().'><i class="fas fa-trash"></i> Supprimer</a>';
+                        }
+                        else if ($content->getStock()!=0 && isset($_SESSION['admin']))
+                        {
                             ?> 
                             <form action="index.php?page=achat&nom=<?php echo $nom; ?>" method="POST">
                                 <input type="number" name="quantite" value="1">
                                 <input class="btnaj"type="submit" value="Ajouter">
                                 </form>
                             <?php
-                            }
-                            else if ($content->getStock()==0)
-                            {
-                                ?> <p class="stock">Ce produit est malheursement en rupture de stock </p> <?php
-                            }
-                            else
-                            {
-                                ?> <p class="stock"> Veuillez vous <a href="index.php?page=connexion"> connecter</a> pour commander </p> <?php
-                            }
-                            ?>
+                        }
+                        else if ($content->getStock()==0)
+                        {
+                            ?> <p class="stock">Ce produit est malheursement en rupture de stock </p> <?php
+                        }
+                        else
+                        {
+                            ?> <p class="stock"> Veuillez vous <a href="index.php?page=connexion"> connecter</a> pour commander </p> <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <?php

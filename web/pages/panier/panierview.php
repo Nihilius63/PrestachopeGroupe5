@@ -23,6 +23,7 @@ $content=$instanceController->testclear();
                         echo $contents.'<br>';
                         $produit=produitDAO::selectproduitbynom($contents);
                         echo $produit->getPrix().'<br>';
+                        echo $produit->getImage().'<br>';
                         echo "Quantité: ".$values.'<br>';
                         $total=floatval($produit->getPrix())*$values;
                         echo "Total:".$total.'<br>';

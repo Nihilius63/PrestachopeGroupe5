@@ -2,7 +2,8 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<title>Prestachope</title>		
+		<title>Prestachope</title>	
+                <link rel="shortcut icon" type="image/png" href="../web/assets/img/test.png">
 	</head>
 	<body>
 <?php

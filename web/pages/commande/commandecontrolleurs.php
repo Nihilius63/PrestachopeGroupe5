@@ -25,6 +25,7 @@ class commandecontrolleurs
         include_once 'DTO/commandeDTO.php';
         include_once 'DAO/commande_produitDAO.php';
         include_once 'DTO/commande_produitDTO.php';
+        include_once 'DAO/utilisateursDAO.php';
         include_once 'pages/panier/paniercontrolleur.php';
         $instanceController = new paniercontrolleur();
         $content=$instanceController->content();
@@ -39,6 +40,7 @@ class commandecontrolleurs
         $commande->setFacture($supertotal);
         $commande->setIdClient($_SESSION['id']);
         $id = commandeDAO::insertcommande($commande);
+        utilisateursDAO::debitercagnotte($commande);
         foreach ($content as $contents=>$values)
         {
             $produit=produitDAO::selectproduitbynom($contents);
