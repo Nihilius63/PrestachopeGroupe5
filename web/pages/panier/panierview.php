@@ -2,6 +2,7 @@
 include_once 'paniercontrolleur.php';
 $instanceController = new paniercontrolleur();
 $content=$instanceController->testclear();
+$instanceController->testnom();
 ?>
 <html>
     <head>
@@ -28,6 +29,7 @@ $content=$instanceController->testclear();
                         $total=floatval($produit->getPrix())*$values;
                         echo "Total:".$total.'<br>';
                         $supertotal=$total+$supertotal;
+                        echo '<a href="index.php?page=panier&nom='. $produit->getNom().'">Supprimer</a>';
                         ?> 
                     </div>
                     <?php

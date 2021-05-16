@@ -26,4 +26,11 @@ class paniercontrolleur
             header('Location: index.php?page=vitrine');
         }
     }
+    public function testnom() 
+    {
+        if (isset($_GET['nom']))
+        {
+            unset($_SESSION['panier'][$_GET['nom']]);
+        }
+    }
 }
