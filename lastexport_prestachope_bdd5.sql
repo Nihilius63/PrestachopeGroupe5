@@ -125,7 +125,7 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`idContact`, `message`, `statuts`, `idClient`) VALUES
 (1, 'slt', 1, 1),
-(2, 'Starfoullah', 0, 5),
+(2, 'Votre site est parfait', 0, 5),
 (5, 'test', 1, 5);
 
 -- --------------------------------------------------------

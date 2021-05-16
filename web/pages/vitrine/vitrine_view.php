@@ -56,8 +56,9 @@
                                 <?php
                                 if (isset($_SESSION['admin'])&&$_SESSION['admin']==1)
                                 {
-                                    echo '<p class="stock">L\'adminsitrateur ne peut commander !</p>';
-                                    echo '<a href=index.php?page=delete_produit&produit='.$contents->getId().'><i class="fas fa-trash"></i> Supprimer</a>';
+                                    ?> <p class="stock">L'adminsitrateur ne peut commander !</p>
+                                    <a class="suppri" href=index.php?page=delete_produit&produit=<?php echo $contents->getId(); ?> ><i class="fas fa-trash"></i> Supprimer</a>
+                                    <?php
                                 }
                                 else if ($contents->getStock()!=0 && isset($_SESSION['admin']))
                                 {

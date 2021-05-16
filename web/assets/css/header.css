@@ -122,3 +122,38 @@ html{
 .fa-pen:hover{
     color: red;
 }
+.nbmess{ 
+   height: 20px;
+   width: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: solid 1px white;
+   border-radius: 50%;
+   position: absolute;
+   margin-left: 10px;
+   top:1%;
+   font-size: 1.6rem;
+}
+.messagehead{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.btnadmin{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.btnadmin i{
+    font-size: 20px;
+}
+.btnadmin i:hover{
+    color: red;
+}
+.fa-power-off{
+    margin-left: 10px;
+}
+.sub-menu i{
+    margin-right: 5px;
+}

@@ -58,6 +58,38 @@
                     </div>';
                     }
                 ?>
+                     <?php
+                    if(isset($_SESSION['admin']))
+                    {
+                        if ($_SESSION['admin']==1)
+                        {
+                       ?>     
+                        <div class="cat">
+                            <ul>
+                                <div class="btnadmin">
+                                <li class="ligne">
+                                        <i class="fas fa-plus-square"></i>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.php?page=new_product" value="1"><i class="fas fa-plus-square"></i>Produit</a></li>
+                                        <li><a href="index.php?page=new_categorie" value="1"><i class="fas fa-plus-square"></i>Categorie</a></li>
+                                        <li><a href="index.php?page=new_souscategorie" value="1"><i class="fas fa-plus-square"></i>SousCategorie</a></li>
+                                    </ul>
+                                </li>
+                                <li class="ligne">
+                                        <i class="fas fa-trash-alt"></i>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.php?page=delete_produit" value="1"><i class="fas fa-trash-alt"></i>Produit</a></li>
+                                        <li><a href="index.php?page=delete_categorie" value="1"><i class="fas fa-trash-alt"></i>Categorie</a></li>
+                                        <li><a href="index.php?page=delete_souscategorie" value="1"><i class="fas fa-trash-alt"></i></i>SousCategorie</a></li>
+                                    </ul>
+                                </li>
+                                </div>
+                            </ul>
+                        </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="btndroite">
                     <a href="index.php?page=presentation"  value="presentation" ><i class="fas fa-home"></i></a>
@@ -70,38 +102,19 @@
                             include_once 'DAO/contactDAO.php';
                             if (contactDAO::selecnbtmsg()!=0)
                             {
-                               echo '<a href="index.php?page=contact"><i class="fas fa-envelope"></i></a><br>';
-                               echo contactDAO::selecnbtmsg().'<br>';
+                               ?> 
+                                <div class="messagehead">
+                                    <a href="index.php?page=contact"><i class="fas fa-envelope"></i></a>
+                                    <div class="nbmess">
+                                        <p><?php echo contactDAO::selecnbtmsg();?> </p>
+                                    </div>
+                                </div>
+                                <?php
                             }
                             include_once 'DAO/commandeDAO.php';
-                            echo 'La tresorie et de '.commandeDAO::gettresorie().'€';
+                            ?> <p>Tresorie : <?php echo commandeDAO::gettresorie();?> € </p>
+                            <?php
                     ?>
-                    <div class="dropdown">
-                        <div class="cat">
-                            <ul>
-                                <li class="ligne">
-                                    <h2>
-                                        <a href="index.php?page=vitrine"><i class="fas fa-plus-square"></i></a>
-                                    </h2>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.php?page=new_product" value="1"><i class="fas fa-plus-square"></i>Produit</a></li>
-                                        <li><a href="index.php?page=new_categorie" value="1"><i class="fas fa-plus-square"></i>Categorie</a></li>
-                                        <li><a href="index.php?page=new_souscategorie" value="1"><i class="fas fa-plus-square"></i>SousCategorie</a></li>
-                                    </ul>
-                                </li>
-                                <li class="ligne">
-                                    <h2>
-                                        <a href="index.php?page=vitrine"><i class="fas fa-trash-alt"></i></a>
-                                    </h2>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.php?page=delete_produit" value="1"><i class="fas fa-trash-alt"></i>Produit</a></li>
-                                        <li><a href="index.php?page=delete_categorie" value="1"><i class="fas fa-trash-alt"></i>Categorie</a></li>
-                                        <li><a href="index.php?page=delete_souscategorie" value="1"><i class="fas fa-trash-alt"></i></i>SousCategorie</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <?php
                         }
                         else
@@ -124,7 +137,8 @@
                             <?php  
                             }
                         }
-                        echo '<a href="index.php?page=deco"><i class="fas fa-power-off"></i></a>';  
+                        ?> <a href="index.php?page=deco"><i class="fas fa-power-off"></i></a>
+                        <?php
                     }
                     else {
                         ?>

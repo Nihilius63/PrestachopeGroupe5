@@ -34,6 +34,7 @@ body{
     max-width: 200px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 .imgProduit{
     max-height: 280px;
@@ -128,4 +129,8 @@ body{
 }
 .texte a:hover{
     text-decoration: underline;
+}
+.texte .suppri{
+    color: red;
+    font-size: 1.2rem;
 }

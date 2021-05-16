@@ -10,35 +10,42 @@
     <title> Prestachope </title>
   </head>
   <body>
-        <?php
-        if ($_SESSION['admin']==1)
-        {
-            if (isset($_POST['valid']))
-            {
-                foreach ($_POST['valid'] as $valeur) 
+      <div class="conteneur">
+          <div class="messageadmin">
+                <?php
+                if ($_SESSION['admin']==1)
                 {
-                    include_once 'DAO/contactDAO.php';
-                    $infoclient= contactDAO::modiflu($valeur);
+                    if (isset($_POST['valid']))
+                    {
+                        foreach ($_POST['valid'] as $valeur) 
+                        {
+                            include_once 'DAO/contactDAO.php';
+                            $infoclient= contactDAO::modiflu($valeur);
+                        }
+                    }
+                    include_once 'contactcontrolleur.php';
+                    $instanceController = new contactcontrolleur();
+                    $content=$instanceController->selectmsg();
+                    ?> <h1> <span>G</span>estion <span>D</span>es <span>M</span>essage </h1>
+                    <form action="" method="post">
+                    <?php
+                    foreach ($content as $contents)
+                    {
+                        include_once 'DAO/utilisateursDAO.php';
+                        $infoclient= utilisateursDAO::selectutilisateursbyId($contents->getIdClient());
+                        ?> <div class="mess"> <p> <?php echo $infoclient->getNom();?> <?php echo $infoclient->getPrenom(); ?> a dit : <?php echo $contents->getMessage();?></p>
+                        <input type="checkbox" name="valid[]" value="<?php echo $contents->getId();?>" checked>
+                        <label for="valid[]"> Vue</label>
+                        </div>
+                        <?php
+                    }
+                    ?> <div class="boutonval"> <input class="btn" type="submit" name="" value="Valider"></form></div>
+          </div>
+                    <?php
                 }
-            }
-            include_once 'contactcontrolleur.php';
-            $instanceController = new contactcontrolleur();
-            $content=$instanceController->selectmsg();
-            echo '<form action="" method="post">';
-            foreach ($content as $contents)
-            {
-                include_once 'DAO/utilisateursDAO.php';
-                $infoclient= utilisateursDAO::selectutilisateursbyId($contents->getIdClient());
-                echo $infoclient->getNom()." ".$infoclient->getPrenom()." a dit: ".$contents->getMessage();
-                echo '<input type="checkbox" name="valid[]" value="'.$contents->getId().'" checked>
-                <label for="valid[]"> Vue</label><br>';
-            }
-            echo '<input class="btn" type="submit" name="" value="Valider"></form>';
-        }
         else
         {
             ?>
-                <div class="conteneur">
                     <div class="contact">
                         <h1> <span>E</span>nvoyer votre message </h1>
                         <form action="" method="post">

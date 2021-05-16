@@ -61,3 +61,78 @@ body{
 .btnenvoy:hover{
     opacity: 0.6;
 }
+.messageadmin{
+    display: flex;
+    flex-direction: column;
+}
+.messageadmin h1{
+    font-size: 6.2rem;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 10px;
+}
+.messageadmin h1 span{
+    color: purple;
+}
+.messageadmin p{
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.8rem;
+}
+.mess{
+    margin-top: 10px;
+    border-bottom: solid 1px black;
+}
+.mess label{
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.8rem;
+}
+input[type="checkbox"]
+{
+    position:relative;
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    /*transition: .5s;*/
+}
+input:checked[type="checkbox"]{
+    background: purple;
+}
+input[type="checkbox"]:before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    transition: .5s;
+}
+input:checked[type="checkbox"]:before{
+    left: 20px;
+}
+.messageadmin .btn{
+    margin-top: 10px;
+    border: none;
+   outline: none;
+     height: 30px;
+    width: 100px;
+    background: purple;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+.messageadmin .btn:hover{
+    opacity: 0.6;
+}
+.boutonval{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

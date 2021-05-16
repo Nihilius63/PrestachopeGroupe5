@@ -138,3 +138,12 @@ body{
 .btnvalider:hover{
     opacity: 0.6;
 }
+.suppri{
+    color: red;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.suppri:hover{
+    text-decoration: underline;
+}
