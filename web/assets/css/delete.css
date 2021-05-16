@@ -62,3 +62,9 @@ body{
 .btnsuppr:hover{
     opacity: 0.6;
 }
+.checkmsg{
+    font-size: 1.6rem;
+}
+.checkmsg i{
+    margin-right: 10px;
+}

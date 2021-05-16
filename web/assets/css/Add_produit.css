@@ -91,3 +91,9 @@ input[type="file"]{
 ::-webkit-file-upload-button:hover{
     opacity: 0.7;
 }
+.checkmsg{
+    font-size: 1.6rem;
+}
+.checkmsg i{
+    margin-right: 10px;
+}

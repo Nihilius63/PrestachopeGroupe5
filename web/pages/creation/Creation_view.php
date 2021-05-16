@@ -1,25 +1,4 @@
-<?php
-if (isset($_SESSION['admin'])&& $_SESSION['admin']==1)
-{
-    include_once 'Creation_controlleur.php';
-    $instanceController=new Creation_controlleur();
-    if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$_POST['souscategorie']))
-    {
-        $instanceController->insertproduct();
-        echo "Le produit ".$_POST['Nom']." a bien ete ajouter";
-    }
-    if (isset($_POST['Nomsous'],$_POST['categorie']))
-    {
-        $instanceController->newsouscategorie($_POST['Nomsous'],$_POST['categorie']);
-        echo "La sous-categorie ".$_POST['Nomsous']." a bien ete ajouter";
-    }
-    if (isset($_POST['Nomcate']))
-    {
-        $instanceController->newcategorie($_POST['Nomcate']);
-        echo "La categorie ".$_POST['Nomcate']." a bien ete ajouter";
-    }
-    ?>
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="assets/css/Add_produit.css" media="all"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,6 +12,30 @@ if (isset($_SESSION['admin'])&& $_SESSION['admin']==1)
     <body>
         <div class="contenue">
             <div class="prod">
+            <?php
+            if (isset($_SESSION['admin'])&& $_SESSION['admin']==1)
+            {
+                include_once 'Creation_controlleur.php';
+                $instanceController=new Creation_controlleur();
+                if (isset($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$_POST['souscategorie']))
+                {
+                    $instanceController->insertproduct();
+                    ?> <p class="checkmsg"><i class="fas fa-check"></i>  Le produit <?php echo $_POST['Nom']; ?> a bien ete ajouté </p>
+                    <?php
+                }
+                if (isset($_POST['Nomsous'],$_POST['categorie']))
+                {
+                    $instanceController->newsouscategorie($_POST['Nomsous'],$_POST['categorie']);
+                    ?> <p class="checkmsg"> <i class="fas fa-check"></i> La sous-categorie <?php echo $_POST['Nomsous']; ?> a bien ete ajouté </p>
+                    <?php
+                }
+                if (isset($_POST['Nomcate']))
+                {
+                    $instanceController->newcategorie($_POST['Nomcate']);
+                    ?> <p class="checkmsg"><i class="fas fa-check"></i> La categorie <?php echo $_POST['Nomcate'] ; ?> a bien ete ajouté </p>
+                    <?php
+                }
+                ?>
                 <div class="titreadd">
                     <h1> <span>A</span>jouter <span>U</span>n <span>P</span>roduit </h1>
                 </div>
