@@ -1,3 +1,64 @@
+<?php
+$erreur=0;
+$valide=false;
+    if (isset($_POST['email'])) 
+    {
+        $instanceController = new Connexion_controller();
+        $result=$instanceController->connectUtilisateur($_POST['email'],$_POST['password']);
+        if (isset($result)) 
+        {
+            $_SESSION['id']=$result->getIdClient();
+            $_SESSION['nom']=$result->getNom();
+            $_SESSION['prenom']=$result->getPrenom();
+            $_SESSION['adresse']=$result->getAdresse();
+            $_SESSION['cagnotte']=$result->getCagnote();
+            $_SESSION['admin']=$result->getAdmin();
+            $_SESSION['panier']=array();
+            header('Location: index.php?page=vitrine');
+
+        }
+        else
+        {
+
+            ?> <div id="identifiant_false"> <?php
+
+            ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i> Mot de passe ou identifiant incorrect</p>
+
+            </div> <?php
+
+        }
+    }
+    if (isset($_POST['Email'],$_POST['Nom'],$_POST['Password'],$_POST['Password2'],$_POST['Prenom'])) 
+    {
+        $instanceController = new Connexion_controller();
+        $result=$instanceController->testmail($_POST['Email']);
+        if(isset($result))
+        {
+            ?> <div id="identifiant_false_inscription">
+                <p class="msgimp">Il y a deja un compte asocié avec <?php echo $_POST['Email']; ?></p>
+            <?php
+            $erreur=1;
+            ?> </div> <?php
+        }
+        if ($erreur==0)
+        {
+            if ($_POST['Password']==$_POST['Password2']) 
+            {
+                ?> <div id="identifiant_false"> <?php
+                $instanceController->createUtilisateur($_POST['Email'],$_POST['Nom'],$_POST['Prenom'],$_POST['Password'],$_POST['Adresse']);
+                ?> <p class="msgimp"><i class="fas fa-check"></i>Vous êtes inscrit</p>
+                </div> <?php
+            }
+            else
+            {
+                ?> <div id="identifiant_false_inscription"> <?php
+                ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i>Les 2 mot de passe ne sont pas égale</p>
+                </div> <?php
+            }
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang='fr'>
     <head>
@@ -7,68 +68,6 @@
     </head>
     <body>
         <div id="body_log">
-            <?php
-            $erreur=0;
-            $valide=false;
-                if (isset($_POST['email'])) 
-                {
-                    $instanceController = new Connexion_controller();
-                    $result=$instanceController->connectUtilisateur($_POST['email'],$_POST['password']);
-                    if (isset($result)) 
-                    {
-                        $_SESSION['id']=$result->getIdClient();
-                        $_SESSION['nom']=$result->getNom();
-                        $_SESSION['prenom']=$result->getPrenom();
-                        $_SESSION['adresse']=$result->getAdresse();
-                        $_SESSION['cagnotte']=$result->getCagnote();
-                        $_SESSION['admin']=$result->getAdmin();
-                        $_SESSION['panier']=array();
-                        header('Location: index.php?page=vitrine');
-                        
-                    }
-                    else
-                    {
-
-                        ?> <div id="identifiant_false"> <?php
-
-                        ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i> Mot de passe ou identifiant incorrect</p>
-
-                        </div> <?php
-
-                    }
-                }
-                if (isset($_POST['Email'],$_POST['Nom'],$_POST['Password'],$_POST['Password2'],$_POST['Prenom'])) 
-                {
-                    $instanceController = new Connexion_controller();
-                    $result=$instanceController->connectUtilisateur($_POST['Email'],$_POST['Password']);
-                    if(isset($result))
-                    {
-                        ?> <div id="identifiant_false_inscription">
-                            <p class="msgimp">Il y a deja un compte asocié avec <?php echo $_POST['Email']; ?></p>
-                        <?php
-                        $erreur=1;
-                        ?> </div> <?php
-                    }
-                    if ($erreur==0)
-                    {
-                        if ($_POST['Password']==$_POST['Password2']) 
-                        {
-                            ?> <div id="identifiant_false"> <?php
-                            $instanceController->createUtilisateur($_POST['Email'],$_POST['Nom'],$_POST['Prenom'],$_POST['Password'],$_POST['Adresse']);
-                            ?> <p class="msgimp"><i class="fas fa-check"></i>Vous êtes inscrit</p>
-                            </div> <?php
-                        }
-                        else
-                        {
-                            ?> <div id="identifiant_false_inscription"> <?php
-                            ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i>Les 2 mot de passe ne sont pas égale</p>
-                            </div> <?php
-                        }
-                    }
-                    
-                }
-            ?>
-
             <div class="form">
                 <form class="login-form" action="" method="post">
                     <i class="fas fa-user-circle"></i>

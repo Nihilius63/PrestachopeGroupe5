@@ -20,8 +20,13 @@ class Connexion_controller {
             $utilisateur->setMail($email);
             $utilisateur->setMotdepasse($motdepasse);
             $utilisateur->setAdresse($adresse);
-            $utilisateur->setNom($nom);
             $utilisateur->setPrenom($prenom);
+            $result=utilisateursDAO::createUtilisateur($utilisateur);
+            return $result;
+        }
+        public function testmail($email) {
+            $utilisateur=new utilisateursDTO();
+            $utilisateur->setMail($email);
             $result=utilisateursDAO::createUtilisateur($utilisateur);
             return $result;
         }

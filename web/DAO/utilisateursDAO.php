@@ -91,4 +91,10 @@ class utilisateursDAO
         $resultat=$bdd->prepare('UPDATE `utilisateurs` SET cagnote=cagnote-? WHERE idClient=?');
         $resultat->execute(array($commandeDTO->getFacture(),$commandeDTO->getIdClient()));
     }
+    public static function testmail($utilisateurDTO) 
+    {
+        $bdd= databaselinker::getconnexion();
+        $resultat=$bdd->prepare('Select * from utilisateurs Where mail=?');
+        return $resultat->execute(array($utilisateurDTO->getMail()));
+    }
 }
