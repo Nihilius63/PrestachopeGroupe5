@@ -34,11 +34,14 @@ $valide=false;
         $result=$instanceController->testmail($_POST['Email']);
         if(isset($result))
         {
+            if($result!=[])
+            {
             ?> <div id="identifiant_false_inscription">
                 <p class="msgimp">Il y a deja un compte asocié avec <?php echo $_POST['Email']; ?></p>
             <?php
             $erreur=1;
             ?> </div> <?php
+            }
         }
         if ($erreur==0)
         {
@@ -71,7 +74,7 @@ $valide=false;
             <div class="form">
                 <form class="login-form" action="" method="post">
                     <i class="fas fa-user-circle"></i>
-                    <input class="user-input" type="text" name="email" placeholder="Email" required>
+                    <input class="user-input" type="text" name="mail" placeholder="Email" required>
                     <input class="user-input" type="password" name="password" placeholder="Mot de passe" required>
                     <input class="btn" type="submit" name="" value="CONNEXION">
                     <div class="options-02">

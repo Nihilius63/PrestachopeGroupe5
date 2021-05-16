@@ -95,6 +95,8 @@ class utilisateursDAO
     {
         $bdd= databaselinker::getconnexion();
         $resultat=$bdd->prepare('Select * from utilisateurs Where mail=?');
-        return $resultat->execute(array($utilisateurDTO->getMail()));
+        $resultat->execute(array($utilisateurDTO->getMail()));
+        $result=$resultat->fetchAll();
+        return $result;
     }
 }
