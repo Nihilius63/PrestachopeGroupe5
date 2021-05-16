@@ -31,9 +31,9 @@
 
                         ?> <div id="identifiant_false"> <?php
 
-                        echo "Mot de passe ou identifiant incorrect";
+                        ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i> Mot de passe ou identifiant incorrect</p>
 
-                        ?> </div> <?php
+                        </div> <?php
 
                     }
                 }
@@ -43,8 +43,9 @@
                     $result=$instanceController->connectUtilisateur($_POST['Email'],$_POST['Password']);
                     if(isset($result))
                     {
-                        ?> <div id="identifiant_false_inscription"> <?php
-                        echo 'Il y a deja un compte asocié avec '.$_POST['Email'];
+                        ?> <div id="identifiant_false_inscription">
+                            <p class="msgimp">Il y a deja un compte asocié avec <?php echo $_POST['Email']; ?></p>
+                        <?php
                         $erreur=1;
                         ?> </div> <?php
                     }
@@ -54,14 +55,14 @@
                         {
                             ?> <div id="identifiant_false"> <?php
                             $instanceController->createUtilisateur($_POST['Email'],$_POST['Nom'],$_POST['Prenom'],$_POST['Password'],$_POST['Adresse']);
-                            echo "Vous êtes inscrit";
-                            ?> </div> <?php
+                            ?> <p class="msgimp"><i class="fas fa-check"></i>Vous êtes inscrit" </p>
+                            </div> <?php
                         }
                         else
                         {
                             ?> <div id="identifiant_false_inscription"> <?php
-                            echo "Les 2 mot de passe ne sont pas égale";
-                            ?> </div> <?php
+                            ?> <p class="msgimp"><i class="fas fa-exclamation-triangle"></i>Les 2 mot de passe ne sont pas égale</p>
+                            </div> <?php
                         }
                     }
                     

@@ -105,3 +105,14 @@
 .form .options-02 a{
 	color: #4285F4;
 }
+.msgimp{
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    text-align: center;
+    font-size: 1.8rem;
+}
+.msgimp i{
+    margin-right: 10px;
+}
