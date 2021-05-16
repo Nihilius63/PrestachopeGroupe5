@@ -20,27 +20,14 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.suppr h1{
+.titredel h1{
     font-size: 6.8rem;
     font-family: 'Lobster', cursive;
 }
-.suppr h1 span{
+.titredel h1 span{
     color: purple;
 }
-.suppr{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: solid 2px black;
-    padding: 50px;
-}
-.suppr label{
-    font-size: 2.6rem;
-    font-family: 'Red Hat Display', sans-serif;
-}
-.suppr input, .suppr select{
+.contenue input{
    border: none;
    outline: none;
    padding: 5px;
@@ -48,17 +35,16 @@ body{
    margin: 0 5px !important;
    box-shadow: 0 2px 5px rgba(0,0,0,.5);
 }
-.form-example{
-    margin-top: 10px;
-    text-align: center;
+.categorie, .souscategorie{
+    margin-top: 20px;
 }
-.btnsuppr{
-    height: 30px;
+.btnmodif{
+     height: 30px;
     width: 100px;
     background: purple;
     color: white;
     transition: 0.3s;
 }
-.btnsuppr:hover{
+.btnmodif:hover{
     opacity: 0.6;
 }
