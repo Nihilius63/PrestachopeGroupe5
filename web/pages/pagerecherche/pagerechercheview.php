@@ -18,6 +18,7 @@
     <title> Prestachope </title>
   </head>
   <body>
+      <div class="contenue">
         <?php
         include_once 'PagerechercheControlleur.php';
         $instance =new PagerechercheControlleur();
@@ -93,6 +94,7 @@
             }
             ?>
         </div>
+      </div>
     </body>
     </html>
 

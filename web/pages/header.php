@@ -112,13 +112,17 @@
                     {
                         if (isset($_SESSION['admin'])&&$_SESSION['admin']==0)
                         {
-                            echo '<a href="index.php?page=panier"><i class="fas fa-shopping-cart"></i></a>';
-                            $tailletab= count($_SESSION['panier']);
-                            if ($tailletab>0)
-                            {
-                              ?>
-                            <div class="nb-panier">
-                                <p><?php echo $tailletab ?> </p>
+                            ?>
+                            <div class="pani">
+                                <a href="index.php?page=panier"><i class="fas fa-shopping-cart"></i></a>
+                                <?php
+                                $tailletab= count($_SESSION['panier']);
+                                if ($tailletab>0)
+                                {
+                                  ?>
+                                <div class="nb-panier">
+                                    <p><?php echo $tailletab ?> </p>
+                                </div>
                             </div>
                             <?php  
                             }

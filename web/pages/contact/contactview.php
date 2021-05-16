@@ -11,22 +11,23 @@
   </head>
   <body>
       <div class="conteneur">
-          <div class="messageadmin">
-                <?php
-                if ($_SESSION['admin']==1)
+            <?php
+            if ($_SESSION['admin']==1)
+            {
+                if (isset($_POST['valid']))
                 {
-                    if (isset($_POST['valid']))
+                    foreach ($_POST['valid'] as $valeur) 
                     {
-                        foreach ($_POST['valid'] as $valeur) 
-                        {
-                            include_once 'DAO/contactDAO.php';
-                            $infoclient= contactDAO::modiflu($valeur);
-                        }
+                        include_once 'DAO/contactDAO.php';
+                        $infoclient= contactDAO::modiflu($valeur);
                     }
-                    include_once 'contactcontrolleur.php';
-                    $instanceController = new contactcontrolleur();
-                    $content=$instanceController->selectmsg();
-                    ?> <h1> <span>G</span>estion <span>D</span>es <span>M</span>essage </h1>
+                }
+                include_once 'contactcontrolleur.php';
+                $instanceController = new contactcontrolleur();
+                $content=$instanceController->selectmsg();
+                ?> 
+                <div class="messageadmin">
+                    <h1> <span>G</span>estion <span>D</span>es <span>M</span>essage </h1>
                     <form action="" method="post">
                     <?php
                     foreach ($content as $contents)
@@ -40,9 +41,9 @@
                         <?php
                     }
                     ?> <div class="boutonval"> <input class="btn" type="submit" name="" value="Valider"></form></div>
-          </div>
-                    <?php
-                }
+                </div>
+                <?php
+            }
         else
         {
             ?>

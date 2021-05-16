@@ -11,6 +11,7 @@ html{
    height: 80px;
    background-color: black;
    color: #fff;
+   position: fixed;
    display: flex;
    top: 0;
 }
@@ -96,6 +97,11 @@ html{
 .ligne a:hover{
     color: purple;
 }
+.pani{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
 .nb-panier{
    height: 20px;
    width: 20px;
@@ -105,8 +111,9 @@ html{
    border: solid 1px white;
    border-radius: 50%;
    position: absolute;
-   margin-left: 20px;
-   top:1%;
+   margin-left: 15px;
+   top: 1%;
+   margin-top: 10px;
    font-size: 1.6rem;
 }
 .fa-pen{
@@ -131,7 +138,8 @@ html{
    border: solid 1px white;
    border-radius: 50%;
    position: absolute;
-   margin-left: 10px;
+   margin-left: 15px;
+   margin-top: 10px;
    top:1%;
    font-size: 1.6rem;
 }
