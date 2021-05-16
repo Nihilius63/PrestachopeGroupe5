@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.conteneur{
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+.produit{
+    border: solid 1px whitesmoke;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+    display: flex;
+    margin-bottom: 10px;
+}
+.panier{
+    width: 50%;
+}
+.imgProduit{
+    max-height: 140px;
+}
+.prodpan{
+    height: 140px;
+    max-width: 100px;
+    margin: 20px;
+}
+.panier h1{
+    font-size: 6.2rem;
+    font-family: 'Lobster', cursive;
+}
+.panier h1 span{
+    color: purple;
+}
+.titrepanier{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nomdesc, .quantprix, .total{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.nomdesc h2{
+    font-family: 'Teko', sans-serif;
+    font-size: 3.8rem;
+}
+.nomdesc p{
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.8rem;
+}
+.quantprix p{
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.8rem;
+}
+.total{
+     font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.8rem;
+}
+.total i{
+    font-size: 2.4rem;
+    transition: 0.3s;
+}
+.total i:hover{
+    color: red;
+}
+.panier button{
+    background: purple;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+.panier a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Lobster', sans-serif;
+    font-size: 2.2rem;
+}
+.panier button:hover{
+    opacity: 0.7;
+}

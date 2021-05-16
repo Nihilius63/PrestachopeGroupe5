@@ -73,7 +73,7 @@
                         {
                             ?> 
                             <form action="index.php?page=achat&nom=<?php echo $nom; ?>" method="POST">
-                                <input type="number" name="quantite" value="1">
+                                <input type="number" min="1" name="quantite" value="1">
                                 <input class="btnaj"type="submit" value="Ajouter">
                                 </form>
                             <?php
