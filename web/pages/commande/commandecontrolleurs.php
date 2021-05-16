@@ -51,6 +51,7 @@ class commandecontrolleurs
             commande_produitDAO::insertcommande($produitcomande);
             produitDAO::updatestock($produitcomande);
             unset($_SESSION['panier'][$contents]);
+            header('Location: index.php?page=vitrine&commande=1');
         }
     }
 }

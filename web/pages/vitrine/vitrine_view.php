@@ -18,6 +18,12 @@
     <title> Prestachope </title>
   </head>
   <body>
+      <?php
+      if(isset($_GET['commande']))
+      {
+         echo 'Merci pour votre commande Monsieur/Madame '.$_SESSION['nom'].' '.$_SESSION['prenom'].' Vous serai livrer au '.$_SESSION['adresse']. 'dans les plus bref delai' ;
+      }
+      ?>
     <div class="contenue">
         <?php
           include_once "vitrine_controlleur.php";

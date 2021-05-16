@@ -47,18 +47,23 @@ $instanceController->testnom();
                                 $total=floatval($produit->getPrix())*$values;
                                 ?> <p> Total : <?php echo $total; ?> €
                                 <?php $supertotal=$total+$supertotal;
-                                ?> <a href="index.php?page=panier&nom= <?php echo $produit->getNom(); ?> "><i class="fas fa-times"></i></a></p>
+                                ?> <a href="index.php?page=panier&nom=<?php echo $produit->getNom() ?>"><i class="fas fa-times"></i></a></p>
                             </div>
                         </div>
                         <?php
                     }
-                    ?>
-                    <button><a href="index.php?page=panier&panier=clear">Vider le panier</a></button></br>
-                    <button> <a href="index.php?page=commande">Valider ma commande de <?php echo $supertotal ;?> €</a> </button>
+                    if (!empty($content))
+                    {?>
+                        <button><a href="index.php?page=panier&panier=clear">Vider le panier</a></button></br>
+                        <button> <a href="index.php?page=commande">Valider ma commande de <?php echo $supertotal ;?> €</a> </button>
+                    <?php }
+                    else
+                    { 
+                        echo 'Panier Vide retrouvé notre selection de produit <a href="index.php?page=vitrine"> ici !</a>';
+                    }?>
             </div>
         </div>
     </body>
 </html>
-
 
 
