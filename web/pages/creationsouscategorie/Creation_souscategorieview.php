@@ -27,7 +27,6 @@ if (isset($_POST['Nom'],$_POST['categorie']))
              foreach ($categories as $categorie)
              {
                  echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
-                 echo 'test';
              }
         ?>
         </select>

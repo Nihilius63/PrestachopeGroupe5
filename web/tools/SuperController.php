@@ -30,53 +30,19 @@ class SuperController
                     $instanceController->includeView();
                     break;
                 }
-                case "new_product":
+                case "new":
                 {
                     include_once("pages/header.php");
-                    include_once 'DAO/categorieDAO.php';
-                    include_once 'DAO/souscategorieDAO.php';
-                    include_once 'pages/creationproduit/Creation_produitcontrolleur.php';
-                    $instanceController = new Creation_produitcontrolleur();
-                    $instanceController->includeView();
-                }
-                    break;
-                case "new_categorie":
-                {
-                    include_once("pages/header.php");
-                    include_once 'pages/creationcategorie/Creation_categoriecontrolleur.php';
-                    $instanceController = new Creation_categoriecontrolleur();
+                    include_once 'pages/creation/Creation_controlleur.php';
+                    $instanceController = new Creation_controlleur();
                     $instanceController->includeView();
                     break;
                 }
-                case "new_souscategorie":
+                case "delete":
                 {
                     include_once("pages/header.php");
-                    include_once 'pages/creationsouscategorie/Creation_souscategoriecontrolleur.php';
-                    $instanceController = new Creation_souscategoriecontrolleur();
-                    $instanceController->includeView();
-                break;
-                }
-                case "delete_produit":
-                {
-                    include_once("pages/header.php");
-                    include_once 'pages/deleteproduit/delete_produitcontrolleur.php';
-                    $instanceController = new delete_produitcontrolleur();
-                    $instanceController->includeView();
-                break;
-                }
-                case "delete_categorie":
-                {
-                    include_once("pages/header.php");
-                    include_once 'pages/deletecategorie/delete_categoriecontrolleur.php';
-                    $instanceController = new delete_categoriecontrolleur();
-                    $instanceController->includeView();
-                break;
-                }
-                case "delete_souscategorie":
-                {
-                    include_once("pages/header.php");
-                    include_once 'pages/deletesouscategorie/delete_souscategoriecontrolleur.php';
-                    $instanceController = new delete_souscategoriecontrolleur();
+                    include_once 'pages/delete/delete_controlleur.php';
+                    $instanceController = new delete_controlleur();
                     $instanceController->includeView();
                 break;
                 }

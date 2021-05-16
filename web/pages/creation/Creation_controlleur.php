@@ -1,9 +1,9 @@
 <?php
-class Creation_produitcontrolleur
+class Creation_controlleur
 {
     public function includeview() 
     {
-        include_once 'Creation_produitview.php';
+        include_once 'Creation_view.php';
     }
     public function newproduct($nom,$description,$prix,$stock,$categorie,$image,$idsouscategorie) 
     {
@@ -35,46 +35,63 @@ class Creation_produitcontrolleur
             } 
             else 
             {
-                echo "File is not an image.";
+                echo "Le fichier n'est pas une image.";
                 $uploadOk = 0;
             }
         }
         if (file_exists($target_file)) 
         {
-          echo "Sorry, file already exists.";
+          echo "Fichier deja existant.";
           $uploadOk = 0;
         }
 
         if ($_FILES["fileToUpload"]["size"] > 500000) 
         {
-          echo "Sorry, your file is too large.";
+          echo "Fichier trop lourd.";
           $uploadOk = 0;
         }
 
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) 
         {
-          echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+          echo "Desole, uniquement les .JPG, .JPEG, .PNG & .GIF son autorisés.";
           $uploadOk = 0;
         }
 
         if ($uploadOk == 0) 
         {
-          echo "Sorry, your file was not uploaded.";
+          echo "Erreur Fichier non telechargé";
         } 
         else 
         {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
             {
-                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " a ete telecharger.";
             } 
             else 
             {
-                echo "Sorry, there was an error uploading your file.";
+                echo "Erreur Fichier non telechargé.";
             }
         }
-        $instanceController= new Creation_produitcontrolleur();
+        $instanceController= new Creation_controlleur();
         $instanceController->newproduct($_POST['Nom'],$_POST['description'],$_POST['prix'],$_POST['Stock'],$_POST['categorie'],$target_file,$_POST['souscategorie']);
+    }
+    public function newcategorie($nom) 
+    {
+        include_once 'DAO/categorieDAO.php';
+        include_once 'DTO/categorieDTO.php';
+        $categorie=new categorieDTO();
+        $categorie->setCategorieProduit($nom);
+        categorieDAO::insertcategorie($categorie);
+    }
+    public function newsouscategorie($nom,$id) 
+    {
+        include_once 'DAO/souscategorieDAO.php';
+        include_once 'DTO/souscategorieDTO.php';
+        $souscategorie=new souscategorieDTO();
+        $souscategorie->setNomSousCategorie($nom);
+        $souscategorie->setidCategorie($id);
+        souscategorieDAO::insertsouscategorie($souscategorie);
     }
 }
 ?>

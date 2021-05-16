@@ -67,22 +67,8 @@
                         <div class="cat">
                             <ul>
                                 <div class="btnadmin">
-                                <li class="ligne">
-                                        <i class="fas fa-plus-square"></i>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.php?page=new_product" value="1"><i class="fas fa-plus-square"></i>Produit</a></li>
-                                        <li><a href="index.php?page=new_categorie" value="1"><i class="fas fa-plus-square"></i>Categorie</a></li>
-                                        <li><a href="index.php?page=new_souscategorie" value="1"><i class="fas fa-plus-square"></i>SousCategorie</a></li>
-                                    </ul>
-                                </li>
-                                <li class="ligne">
-                                        <i class="fas fa-trash-alt"></i>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.php?page=delete_produit" value="1"><i class="fas fa-trash-alt"></i>Produit</a></li>
-                                        <li><a href="index.php?page=delete_categorie" value="1"><i class="fas fa-trash-alt"></i>Categorie</a></li>
-                                        <li><a href="index.php?page=delete_souscategorie" value="1"><i class="fas fa-trash-alt"></i></i>SousCategorie</a></li>
-                                    </ul>
-                                </li>
+                                <a href="index.php?page=new"><i class="fas fa-plus-square"></i></i></a>
+                                <a href="index.php?page=delete"><i class="fas fa-trash-alt"></i></a>
                                 </div>
                             </ul>
                         </div>
