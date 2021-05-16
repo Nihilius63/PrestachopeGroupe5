@@ -120,7 +120,7 @@ INSERT INTO `produit` (`idProduit`, `nom`, `prix`, `description`, `stock`, `imag
 (32, 'Saucisson à l’âne', 1.5, 'Saucisson | Ane | Origine France', 400, 'assets/img/saucisson-a-l-ane.jpg', 3, 10),
 (33, 'Saucisson enrobé poivre', 3.5, 'Saucisson Poivre | Porc | Origine France', 600, 'assets/img/saucisson-enrobe-poivre.jpg', 3, 10),
 (34, 'Saucisson Nature', 6, 'Saucisson | Porc | Origine France', 800, 'assets/img/saucisson-nature.jpg', 3, 10),
-(36, 'Bretzels petit épeautre à l\'huile d\'olive ', 20, 'Bretzels | Epeautre | 150g', 230, 'assets/img/moulin-des-moines-bretzels-petit-epeautre-a-l-huile-d-olive-150g.jpg', 3, 11),
+(36, 'Bretzels d\'épeautre ', 20, 'Bretzels | Epeautre | 150g', 230, 'assets/img/moulin-des-moines-bretzels-petit-epeautre-a-l-huile-d-olive-150g.jpg', 3, 11),
 (37, 'Chips à la truffe noir', 3.5, 'Chips | Truffe Noir | 100g', 300, 'assets/img/aperitivos-de-anavieja-chips-a-la-truffe-noir-100g.jpg', 3, 11),
 (38, 'Fromage Aperitifs', 3.5, 'Fromage | Chèvre | 150g', 10, 'assets/img/3573064611507-1.jpg', 3, 12),
 (41, 'Glacière Corona ', 200, 'Glacière Corona | 120l', 19, 'assets/img/61qtL5JUT3L._AC_SX425_.jpg', 5, 0),
@@ -164,10 +164,10 @@ CREATE TABLE `utilisateurs` (
 
 
 INSERT INTO `utilisateurs` (`idClient`, `nom`, `prenom`, `adresse`, `mail`, `motdepasse`, `cagnote`, `admin`) VALUES
-(1, 'Burdin', 'Lucas', '20 rue des Balaies 66200 Vesoul', 'lucas.burdin63@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 9990, 1),
-(2, 'Nathim', 'Richard', '11 rue Supercool 21500 Quimper', 'nath.himxd@outlook.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 10000, 0),
-(4, 'patrick', 'teamspeak', '1 Rue des fleurs 63400 Saumur', 'test@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 10000, 0),
-(5, 'Jean', 'Paul', '1 rue des mimosas 52120 Paris', 'jeanpaul@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 9775, 0);
+(1, 'Burdin', 'Lucas', '20 rue des Balaies 66200 Vesoul', 'lucas.burdin63@gmail.com', sha1('Burdin'), 9990, 1),
+(2, 'Richard', 'Nathim', '11 rue Supercool 21500 Quimper', 'nath.himxd@outlook.fr', sha1('Richard'), 10000, 0),
+(4, 'Teamspeak', 'Patrick', '1 Rue des fleurs 63400 Saumur', 'test@gmail.com', sha1('Teamspeak'), 10000, 0),
+(5, 'Jean', 'Paul', '1 rue des mimosas 52120 Paris', 'jeanpaul@gmail.com', sha1('Jean'), 9775, 0);
 
 
 ALTER TABLE `categorie`
