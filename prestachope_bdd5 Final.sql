@@ -88,7 +88,7 @@ INSERT INTO `contact` (`idContact`, `message`, `statuts`, `idClient`) VALUES
 CREATE TABLE `produit` (
   `idProduit` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
-  `prix` float NOT NULL,
+  `prix` float(10) NOT NULL,
   `description` text NOT NULL,
   `stock` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE `utilisateurs` (
   `adresse` varchar(40) NOT NULL,
   `mail` varchar(40) NOT NULL,
   `motdepasse` varchar(40) NOT NULL,
-  `cagnote` int(11) NOT NULL DEFAULT 10000,
+  `cagnote` FLoat(11) NOT NULL DEFAULT 10000,
   `admin` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
