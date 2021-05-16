@@ -59,8 +59,10 @@ $instanceController->testnom();
                     <?php }
                     else
                     { 
-                        echo 'Panier Vide retrouvé notre selection de produit <a href="index.php?page=vitrine"> ici !</a>';
-                    }?>
+                        ?> <p>Panier Vide retrouvé notre selection de produit <a href="index.php?page=vitrine"> ici !</a></p>
+                        <?php
+                    }
+                    ?>
             </div>
         </div>
     </body>

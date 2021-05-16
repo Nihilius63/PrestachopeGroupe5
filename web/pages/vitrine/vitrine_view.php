@@ -18,14 +18,17 @@
     <title> Prestachope </title>
   </head>
   <body>
-      <?php
-      if(isset($_GET['commande']))
-      {
-         echo 'Merci pour votre commande Monsieur/Madame '.$_SESSION['nom'].' '.$_SESSION['prenom'].' Vous serai livrer au '.$_SESSION['adresse']. 'dans les plus bref delai' ;
-      }
-      ?>
     <div class="contenue">
-        <?php
+         <?php
+        if(isset($_GET['commande']))
+        {
+            ?> 
+            <div class="merci">
+                <p> Merci pour votre commande Monsieur/Madame <?php echo $_SESSION['nom'].$_SESSION['prenom']; ?> <br>
+                    Vous serez livrer au <?php echo $_SESSION['adresse'] ;?> dans les plus bref délais </p>
+            </div>
+          <?php
+        }
           include_once "vitrine_controlleur.php";
           $instanceController = new vitrine_controlleur();
           $allcat=$instanceController->IncludeAllCategorie();

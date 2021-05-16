@@ -73,6 +73,7 @@ body{
 .total i{
     font-size: 2.4rem;
     transition: 0.3s;
+    color: purple;
 }
 .total i:hover{
     color: red;
@@ -96,4 +97,17 @@ body{
 }
 .panier button:hover{
     opacity: 0.7;
+}
+.panier p {
+     font-family: 'Teko', sans-serif;
+    font-size: 3.8rem;
+    text-align: center;
+}
+.panier p a{
+    color: purple;
+    font-size: 3.8rem;
+    transition: 0.3s;
+}
+.panier p a:hover{
+    opacity: 0.6;
 }

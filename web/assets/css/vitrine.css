@@ -159,3 +159,11 @@ body{
     color: red;
     font-size: 1.2rem;
 }
+.merci{
+    width: 100%;
+    text-align: center;
+}
+.merci p{
+     font-family: 'Teko', sans-serif;
+    font-size: 3.8rem;
+}

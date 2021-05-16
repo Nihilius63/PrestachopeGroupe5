@@ -20,26 +20,27 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.prod h1{
+.suppr h1{
     font-size: 6.8rem;
     font-family: 'Lobster', cursive;
 }
-.prod h1 span{
+.suppr h1 span{
     color: purple;
 }
-.prod{
+.suppr{
     width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-top: solid 2px black;
     padding: 50px;
 }
-.prod label{
+.suppr label{
     font-size: 2.6rem;
     font-family: 'Red Hat Display', sans-serif;
 }
-.prod input, .prod select, .prod textarea{
+.suppr input, .suppr select{
    border: none;
    outline: none;
    padding: 5px;
@@ -47,47 +48,17 @@ body{
    margin: 0 5px !important;
    box-shadow: 0 2px 5px rgba(0,0,0,.5);
 }
-.prod textarea{
-    height: 100px;
-    width: 400px;
-}
 .form-example{
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    margin-left: 30%;
+    margin-top: 10px;
+    text-align: center;
 }
-.titreadd{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.btnadd{
+.btnsuppr{
     height: 30px;
     width: 100px;
     background: purple;
     color: white;
     transition: 0.5s;
 }
-.btnadd:hover{
+.btnsuppr:hover{
     opacity: 0.6;
-}
-input[type="file"]{
-    font-size: 12px;
-    background: white;
-    border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.5);
-    width: 250px;
-    outline: none;
-}
-::-webkit-file-upload-button{
-    color: white;
-    background: purple;
-    padding: 15px;
-    border:none;
-    border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.5);
-}
-::-webkit-file-upload-button:hover{
-    opacity: 0.7;
 }
