@@ -42,11 +42,11 @@ if (isset($_SESSION['admin'])&& $_SESSION['admin']==1)
                     <input type="text" name="Nom" id="Nom" required>
                 </div>
                 <div class="form-example">
-                    <label for="description">description</label>
+                    <label for="description">Description</label>
                     <textarea type="text" name="description" id="description" required></textarea>
                 </div>
                 <div class="form-example">
-                    <label for="prix">prix</label>
+                    <label for="prix">Prix</label>
                     <input type="text" name="prix" id="description" required>
                 </div>
                 <div class="form-example">
@@ -80,45 +80,59 @@ if (isset($_SESSION['admin'])&& $_SESSION['admin']==1)
                         </select>
                     </div>
                     <div class="form-example">
-                        <label for="fileToUpload">Image:</label>
-                        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+                        <label for="fileToUpload"></label>
+                        <input class="upload-box" type="file" name="fileToUpload" id="fileToUpload"><br>
                     </div>
                     <div class="titreadd">
                         <input class="btnadd" type="submit" value="Ajouter" name="submit">
                     </div>
                     </form>
-                    <form action="" method="post" class="form-example">
-            <div class="form-example">
-                <label for="Nom">Nom :</label>
-                <input type="text" name="Nomsous" id="Nom" required>
-            </div>
-            <label for="categorie">Choisissez une categorie :</label>
-            <select name="categorie">
-            <option value="">--Choisissez une categorie--</option>
-            <?php
-                 include_once 'DAO\categorieDAO.php';
-                 $categories=categorieDAO::selectcategorie();
-                 foreach ($categories as $categorie)
-                 {
-                     echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
-                     echo 'test';
-                 }
-            ?>
-            </select>
-            <div class="form-example">
-                <input type="submit" value="Envoyer">
-            </div>
-        </form>
-                <form action="" method="post" class="form-example">
-                <div class="form-example">
-                <label for="Nomcate">Nom :</label>
-                <input type="text" name="Nomcate" id="Nom" required>
+            </div>   
+            
+                <div class="prod">
+                    <div class="titreadd">
+                        <h1> <span>A</span>jouter <span>U</span>ne <span>C</span>atégorie</h1>
+                    </div>
+                    <form action="" method="post">
+                        <div class="form-example">
+                        <label for="Nomcate">Nom :</label>
+                        <input type="text" name="Nomcate" id="Nom" required>
+                        </div>
+                        <div class="titreadd">
+                            <input class="btnadd" type="submit" value="Ajouter" name="submit">
+                        </div>
+                    </form>
                 </div>
-                <div class="form-example">
-                <input type="submit" value="Envoyer">
+                
+                <div class="prod">
+                    <div class="titreadd">
+                        <h1> <span>A</span>jouter <span>U</span>ne <span>S</span>ous <span>C</span>atégorie</h1>
+                    </div>
+                    <form action="" method="post">
+                    <div class="form-example">
+                        <label for="Nom">Nom :</label>
+                        <input type="text" name="Nomsous" id="Nom" required>
+                    </div>
+                    <div class="form-example">
+                        <label for="categorie">Choisissez une categorie :</label>
+                        <select name="categorie">
+                        <option value="">--Choisissez une categorie--</option>
+                        <?php
+                             include_once 'DAO\categorieDAO.php';
+                             $categories=categorieDAO::selectcategorie();
+                             foreach ($categories as $categorie)
+                             {
+                                 echo '<option value='.$categorie->getIdCategorie().'>'.$categorie->getCategorieProduit().'</option>';
+                                 echo 'test';
+                             }
+                        ?>
+                        </select>
+                    </div>
+                    <div class="titreadd">
+                        <input class="btnadd" type="submit" value="Ajouter" name="submit">
+                    </div>
+                    </form>
                 </div>
-            </form>
-            </div>
         </div>
     </body>
     </html>

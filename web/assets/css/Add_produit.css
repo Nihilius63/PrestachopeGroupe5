@@ -18,6 +18,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .prod h1{
     font-size: 6.8rem;
@@ -27,9 +28,12 @@ body{
     color: purple;
 }
 .prod{
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border-top: solid 2px black;
+    padding: 50px;
 }
 .prod label{
     font-size: 2.6rem;
@@ -51,7 +55,7 @@ body{
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    margin-left: 20%;
+    margin-left: 30%;
 }
 .titreadd{
     width: 100%;
@@ -67,4 +71,23 @@ body{
 }
 .btnadd:hover{
     opacity: 0.6;
+}
+input[type="file"]{
+    font-size: 12px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+    width: 250px;
+    outline: none;
+}
+::-webkit-file-upload-button{
+    color: white;
+    background: purple;
+    padding: 15px;
+    border:none;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+::-webkit-file-upload-button:hover{
+    opacity: 0.7;
 }
