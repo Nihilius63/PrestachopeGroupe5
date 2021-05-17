@@ -1,10 +1,4 @@
-<html>
-    <head>
-    <title></title>
-    </head>
-    <body>
-        
-        <?php
+<?php
         if (isset ($_SESSION['admin']))
         {
             if ($_SESSION['admin']==0)
@@ -20,7 +14,4 @@
             }
         }
         ?>
-    </body>
-</html>
-
 
