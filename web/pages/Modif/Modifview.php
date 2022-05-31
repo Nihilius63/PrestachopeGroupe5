@@ -16,19 +16,23 @@
         {
             include_once 'DAO/categorieDAO.php';
             include_once 'DTO/categorieDTO.php';
+            include_once 'tools/redirect.php';
             $categorie= new categorieDTO();
             $categorie->setCategorieProduit($_POST['categorie']);
             $categorie->setIdCategorie($_GET['categorie']);
             categorieDAO::updatecategorie($categorie);
+            redirect::redirectPage("vitrine");
         }
         if (isset($_POST['souscate']))
         {
             include_once 'DAO/categorieDAO.php';
             include_once 'DTO/categorieDTO.php';
+            include_once 'tools/redirect.php';
             $souscategorie= new souscategorieDTO();
             $souscategorie->setNomSousCategorie($_POST['souscate']);
             $souscategorie->setIdSousCategorie($_GET['souscate']);
             souscategorieDAO::updatesouscategorie($souscategorie);
+            redirect::redirectPage("vitrine");
         }
         if (isset($_GET['categorie']))
         {

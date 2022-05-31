@@ -2,8 +2,10 @@
 if (isset($_POST['Nom']))
 {
     include_once 'Creation_categoriecontrolleur.php';
+    include_once 'tools/redirect.php';
     $instanceController=new Creation_categoriecontrolleur();
     $instanceController->newcategorie($_POST['Nom']);
+    redirect::redirectPage("new");
 }
 ?>
 <!DOCTYPE html>

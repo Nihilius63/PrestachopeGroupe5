@@ -3,7 +3,7 @@ class databaselinker
 {
 	private static $urlbdd='mysql:host=localhost;dbname=prestachope_bdd5';
 	private static $namebdd='root';
-	private static $passwordbdd='';
+	private static $passwordbdd='root';
 	private static $bdd;
 	public static function getconnexion()
 	{

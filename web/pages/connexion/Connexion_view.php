@@ -1,4 +1,5 @@
 <?php
+include_once 'tools/redirect.php';
 $erreur=0;
 $valide=false;
     if (isset($_POST['email'])) 
@@ -14,7 +15,7 @@ $valide=false;
             $_SESSION['cagnotte']=$result->getCagnote();
             $_SESSION['admin']=$result->getAdmin();
             $_SESSION['panier']=array();
-            header('Location: index.php?page=vitrine');
+            redirect::redirectPage("vitrine");
 
         }
         else

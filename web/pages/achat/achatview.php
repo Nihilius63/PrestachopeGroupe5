@@ -1,4 +1,5 @@
 <?php
+    include_once 'tools/redirect.php';
         if (isset ($_SESSION['admin']))
         {
             if ($_SESSION['admin']==0)
@@ -10,7 +11,7 @@
                 include_once 'achatcontroleur.php';
                 $instanceController = new achatcontroleur();
                 $instanceController->includeinpanier($_GET['nom'],$_POST['quantite']);
-                header('Location: index.php?page=vitrine');
+                redirect::redirectPage("vitrine");
             }
         }
         ?>

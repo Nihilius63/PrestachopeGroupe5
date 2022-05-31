@@ -27,6 +27,7 @@ class commandecontrolleurs
         include_once 'DTO/commande_produitDTO.php';
         include_once 'DAO/utilisateursDAO.php';
         include_once 'pages/panier/paniercontrolleur.php';
+        include_once 'tools/redirect.php';
         $instanceController = new paniercontrolleur();
         $content=$instanceController->content();
         $supertotal=0;
@@ -51,7 +52,7 @@ class commandecontrolleurs
             commande_produitDAO::insertcommande($produitcomande);
             produitDAO::updatestock($produitcomande);
             unset($_SESSION['panier'][$contents]);
-            header('Location: index.php?page=vitrine&commande=1');
+            redirect::redirectPage("vitrine&commande=1");
         }
     }
 }
